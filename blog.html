@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Isha Bajpai | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --page-bg: #fdfaf5;   /* slightly warm, old-paper tone */
+        --card-bg: #ffffff;
+        --border: #d4d4d4;
+        --text-main: #222222;
+        --text-muted: #6b7280;
+        --accent: #2563eb;
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif; /* retro blog feel */
+        background-color: var(--bg);
+        color: var(--text-main);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #ffffff;
+        border-bottom: 1px solid var(--border);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .nav-container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.25rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      nav a {
+        padding-bottom: 0.1rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      nav a.active {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+        background-color: var(--page-bg);
+        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      .blog-header {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-title {
+        margin: 0 0 0.25rem;
+        font-size: 1.8rem;
+      }
+
+      .blog-subtitle {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+
+      .post-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .post-item {
+        padding: 1.25rem 0;
+        border-bottom: 1px dashed var(--border);
+      }
+
+      .post-item:last-of-type {
+        border-bottom: none;
+      }
+
+      .post-title {
+        margin: 0;
+        font-size: 1.15rem;
+      }
+
+      .post-title a {
+        color: #1f2933;
+      }
+
+      .post-title a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .post-meta {
+        margin-top: 0.25rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .post-excerpt {
+        margin-top: 0.6rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .post-tag {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <div class="brand">Isha Bajpai</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <header class="blog-header">
+        <h1 class="blog-title">Notebook</h1>
+        <p class="blog-subtitle">
+          Short updates on what I’m building, learning, and thinking about.
+        </p>
+      </header>
+
+      <ul class="post-list">
+        <li class="post-item">
+          <p class="post-tag">update</p>
+          <h2 class="post-title">
+            <a href="#">Building my personal site</a>
+          </h2>
+          <p class="post-meta">
+            Posted on May 29, 2026 · San Jose, CA
+          </p>
+          <p class="post-excerpt">
+            Started putting together a simple portfolio to collect my projects, coursework, and notes in one place.
+            Right now I’m focusing on getting a clean layout and a workflow that makes it easy to add new content.
+          </p>
+        </li>
+
+        <li class="post-item">
+          <p class="post-tag">projects</p>
+          <h2 class="post-title">
+            <a href="#">Experimenting with graph algorithms</a>
+          </h2>
+          <p class="post-meta">
+            Posted on May 20, 2026
+          </p>
+          <p class="post-excerpt">
+            Spent the week revisiting BFS, DFS, and shortest paths, and started prototyping a small visualizer to make
+            the traversal order more intuitive. It’s been a good way to connect theory from class with actual code.
+          </p>
+        </li>
+
+        <li class="post-item">
+          <p class="post-tag">learning</p>
+          <h2 class="post-title">
+            <a href="#">Balancing linear algebra and code</a>
+          </h2>
+          <p class="post-meta">
+            Posted on May 10, 2026
+          </p>
+          <p class="post-excerpt">
+            Juggling linear algebra, discrete math, and programming has been intense, but it’s also making patterns
+            in algorithms and data science feel much more natural.
+          </p>
+        </li>
+
+        <!-- Add more posts as needed -->
+      </ul>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Isha Bajpai · Blog
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
