@@ -1,1 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Isha Bajpai | Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --card-bg: #ffffff;
+        --border: #e5e7eb;
+        --text-main: #111827;
+        --text-muted: #6b7280;
+        --accent: #2563eb;
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background-color: var(--bg);
+        color: var(--text-main);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #ffffff;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.25rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      nav a {
+        padding-bottom: 0.1rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      nav a.active {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .card-list {
+        display: grid;
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 0.75rem;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      }
+
+      .card-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .card-title a {
+        color: var(--accent);
+      }
+
+      .card-title a:hover {
+        text-decoration: underline;
+      }
+
+      .card-meta {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+      }
+
+      .card-body {
+        font-size: 0.95rem;
+      }
+
+      /* Detail sections */
+      .project-detail {
+        margin-bottom: 2.5rem;
+        background-color: var(--card-bg);
+        border-radius: 0.75rem;
+        padding: 1.5rem 1.75rem;
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      }
+
+      .project-detail h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-detail .meta {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+      }
+
+      .project-detail img {
+        max-width: 100%;
+        display: block;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <div class="brand">Isha Bajpai</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h1>Projects</h1>
+      <p class="subtitle">
+        A selection of projects that reflect my interests in algorithms, data, and clean software design.
+      </p>
+
+      <!-- Clickable project overview cards -->
+      <div class="card-list">
+        <article class="card">
+          <div class="card-title">
+            <a href="#project-graph-tool">Graph Algorithm Visualizer</a>
+          </div>
+          <div class="card-meta">Python · Graph theory · Visualization</div>
+          <div class="card-body">
+            An interactive tool for visualizing BFS, DFS, and shortest paths on custom graphs.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-title">
+            <a href="#project-data-cleaner">Data Cleaning Toolkit</a>
+          </div>
+          <div class="card-meta">Python · Pandas · Data pipelines</div>
+          <div class="card-body">
+            A command-line utility to clean, validate, and summarize messy datasets.
+          </div>
+        </article>
+
+        <!-- Add more cards linking to details below as needed -->
+      </div>
+
+      <!-- Detailed sections for each project -->
+      <section id="project-graph-tool" class="project-detail">
+        <h2>Graph Algorithm Visualizer</h2>
+        <div class="meta">Python · NetworkX (or custom) · Matplotlib · Algorithms</div>
+        <p>
+          This project lets users define graphs and visually step through algorithms like breadth-first search,
+          depth-first search, and shortest path computation. It’s designed to help students and developers build
+          intuition about how these algorithms explore a graph.
+        </p>
+        <p>
+          I focused on making the visualizations clear and the codebase easy to extend with new algorithms.
+          The tool separates the core algorithm logic from the rendering layer, which makes testing and debugging easier.
+        </p>
+        <!-- Example image (replace src with your actual file later) -->
+        <!-- <img src="images/graph-visualizer.png" alt="Screenshot of the graph algorithm visualizer"> -->
+      </section>
+
+      <section id="project-data-cleaner" class="project-detail">
+        <h2>Data Cleaning Toolkit</h2>
+        <div class="meta">Python · Pandas · CLI</div>
+        <p>
+          A small toolkit that automates common data-cleaning tasks: handling missing values, normalizing columns,
+          detecting outliers, and generating quick summary reports. It is designed to be used from the command line
+          so it fits easily into existing data workflows.
+        </p>
+        <p>
+          The focus was on reliability and transparency: each transformation is logged, and the reports make it clear
+          what changes were applied to the data.
+        </p>
+        <!-- <img src="images/data-cleaner.png" alt="Screenshot of the data cleaning toolkit output"> -->
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
