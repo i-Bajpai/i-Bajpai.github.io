@@ -2,10 +2,292 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Isha's Site</title>
+    <title>Isha Bajpai | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+      /* Global styles */
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background-color: #f9fafb;
+        color: #111827;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Header / nav */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .nav-container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.25rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: #2563eb;
+      }
+
+      /* Layout */
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      section {
+        padding: 3rem 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      h1, h2 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+      }
+
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .section-subtitle {
+        color: #6b7280;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .about-grid {
+          grid-template-columns: 2fr 1fr;
+        }
+      }
+
+      .card-list {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .card {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+        border: 1px solid #e5e7eb;
+      }
+
+      .card-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .card-meta {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-body {
+        font-size: 0.95rem;
+      }
+
+      /* Blog list */
+      .blog-list li {
+        margin-bottom: 0.75rem;
+      }
+
+      .blog-list span {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-left: 0.5rem;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid #e5e7eb;
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #6b7280;
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Hello, world!</h1>
-    <p>If you can see this, GitHub Pages is working.</p>
+    <!-- Navigation -->
+    <header>
+      <div class="nav-container">
+        <div class="brand">Isha Bajpai</div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Home / About -->
+      <section id="home">
+        <h1>Hi, I’m Isha 👋</h1>
+        <p class="section-subtitle">
+          Undergraduate computer science student focused on data structures, algorithms, and applied mathematics.
+        </p>
+
+        <div class="about-grid">
+          <div>
+            <p>
+              I’m a CS student based in San Jose, California, with experience in C, Python,
+              and data science projects. I enjoy working on algorithms, graph theory, and
+              building tools that make learning and debugging easier.
+            </p>
+            <p>
+              On this site, you’ll find a summary of my experience, a collection of projects
+              I’m proud of, and blog posts where I break down concepts I’m learning.
+            </p>
+          </div>
+          <div>
+            <div class="card">
+              <div class="card-title">Quick facts</div>
+              <div class="card-body">
+                <ul>
+                  <li>Location: San Jose, CA</li>
+                  <li>Interests: DSA, graph algorithms, number theory</li>
+                  <li>Languages: C, Python</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <h2>Experience</h2>
+        <p class="section-subtitle">
+          A snapshot of roles, projects, and coursework that shaped my skills.
+        </p>
+
+        <div class="card-list">
+          <article class="card">
+            <div class="card-title">Data Science Projects (Student)</div>
+            <div class="card-meta">Python · Data cleaning · Visualization</div>
+            <div class="card-body">
+              Built end-to-end data analysis pipelines: cleaning, exploring, and visualizing datasets using Python and plotting libraries.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-title">CS240 – Data Structures and Algorithms</div>
+            <div class="card-meta">C · Pointers · Trees · Graphs</div>
+            <div class="card-body">
+              Implemented linked lists, trees, and graph algorithms from scratch in C, focusing on memory management and performance.
+            </div>
+          </article>
+
+          <!-- Add more experience entries here later -->
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <p class="section-subtitle">
+          Selected projects that highlight my interests in algorithms and software engineering.
+        </p>
+
+        <div class="card-list">
+          <article class="card">
+            <div class="card-title">Project Title Here</div>
+            <div class="card-meta">Tech stack · Year</div>
+            <div class="card-body">
+              Brief one–two sentence description of what this project does and why it matters.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-title">Another Project</div>
+            <div class="card-meta">Tech stack · Year</div>
+            <div class="card-body">
+              Another short description. You can link to GitHub repos or live demos here.
+            </div>
+          </article>
+
+          <!-- Add more projects as needed -->
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog">
+        <h2>Blog</h2>
+        <p class="section-subtitle">
+          Notes and explanations of concepts I’m learning, from algorithms to linear algebra.
+        </p>
+
+        <ul class="blog-list">
+          <li>
+            <a href="#">Placeholder blog post title</a>
+            <span>— Coming soon</span>
+          </li>
+          <li>
+            <a href="#">Another post idea</a>
+            <span>— Maybe about graph algorithms</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
+    </footer>
+
+    <script>
+      // Set the current year in the footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
