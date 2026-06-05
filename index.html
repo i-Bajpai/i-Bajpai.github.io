@@ -85,14 +85,6 @@
         padding: 2rem 1.25rem 3rem;
       }
 
-      .hero-card {
-        background-color: var(--card-bg);
-        border-radius: 0.75rem;
-        padding: 2rem 1.75rem;
-        border: 1px solid var(--border);
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
-      }
-
       h1 {
         margin: 0 0 0.75rem;
         font-size: 2rem;
@@ -101,6 +93,24 @@
       .subtitle {
         color: var(--text-muted);
         margin-bottom: 1.5rem;
+      }
+
+      /* Hero card + animation */
+      .hero-card {
+        background-color: var(--card-bg);
+        border-radius: 0.75rem;
+        padding: 2rem 1.75rem;
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+
+      .hero-card.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .two-column {
@@ -123,12 +133,57 @@
         padding-left: 1.25rem;
       }
 
+      /* Quick-facts hover lift */
+      .two-column > div:last-child .card {
+        background-color: var(--card-bg);
+        border-radius: 0.75rem;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      }
+
+      .two-column > div:last-child .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.15);
+      }
+
       footer {
         border-top: 1px solid var(--border);
         padding: 1.5rem 1.25rem;
         text-align: center;
         font-size: 0.9rem;
         color: var(--text-muted);
+      }
+
+      /* Scroll-to-top button */
+      #scrollTopBtn {
+        position: fixed;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        border: none;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+      }
+
+      #scrollTopBtn.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #1d4ed8;
       }
     </style>
   </head>
@@ -147,7 +202,7 @@
       </div>
     </header>
 
-        <main>
+    <main>
       <section class="hero-card">
         <h1>Hi, I’m Isha.</h1>
         <p class="subtitle">
@@ -166,13 +221,15 @@
             </p>
           </div>
           <div>
-            <p class="section-title">At a glance</p>
-            <ul>
-              <li>Purdue University – B.S. in Computer Science, Minor in Management (Sophomore)</li>
-              <li>Technical skills: Java, Python, R; experience with design tools like Illustrator and Photoshop</li>
-              <li>Interests: human-centered apps, AI for accessibility, data-driven decision making</li>
-              <li>Currently involved in: Purdue Electric Racing, CS Women’s Network, NCTTA table tennis</li>
-            </ul>
+            <div class="card">
+              <p class="section-title">At a glance</p>
+              <ul>
+                <li>Purdue University – B.S. in Computer Science, Minor in Management (Sophomore)</li>
+                <li>Technical skills: Java, Python, R; experience with design tools like Illustrator and Photoshop</li>
+                <li>Interests: human-centered apps, AI for accessibility, data-driven decision making</li>
+                <li>Currently involved in: Purdue Electric Racing, CS Women’s Network, NCTTA table tennis</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -182,8 +239,31 @@
       © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
     </footer>
 
+    <!-- Scroll to top button -->
+    <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Hero fade-in
+      const hero = document.querySelector(".hero-card");
+      window.addEventListener("load", () => {
+        if (hero) hero.classList.add("visible");
+      });
+
+      // Scroll-to-top logic
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 250) {
+          scrollBtn.classList.add("visible");
+        } else {
+          scrollBtn.classList.remove("visible");
+        }
+      });
+
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     </script>
   </body>
 </html>
