@@ -98,67 +98,99 @@
       .card-list {
         display: grid;
         gap: 1.25rem;
-        margin-bottom: 2.5rem;
       }
 
-      .card {
+      .project-card {
         background-color: var(--card-bg);
         border-radius: 0.75rem;
-        padding: 1.25rem 1.5rem;
         border: 1px solid var(--border);
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+        overflow: hidden;
+        transition: box-shadow 0.2s ease-out, transform 0.2s ease-out, border-color 0.2s ease-out;
+        cursor: pointer;
       }
 
-      .card-title {
+      .project-card:hover {
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+        transform: translateY(-2px);
+        border-color: #bfdbfe;
+      }
+
+      .project-header {
+        padding: 1rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .project-title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .project-title {
         font-weight: 600;
-        margin-bottom: 0.25rem;
       }
 
-      .card-title a {
+      .project-meta {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .project-toggle {
+        font-size: 0.85rem;
         color: var(--accent);
+        white-space: nowrap;
       }
 
-      .card-title a:hover {
-        text-decoration: underline;
-      }
-
-      .card-meta {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin-bottom: 0.75rem;
-      }
-
-      .card-body {
+      .project-preview {
+        padding: 0 1.25rem 0.75rem;
         font-size: 0.95rem;
+        color: #374151;
       }
 
-      /* Detail sections */
-      .project-detail {
-        margin-bottom: 2.5rem;
-        background-color: var(--card-bg);
-        border-radius: 0.75rem;
-        padding: 1.5rem 1.75rem;
-        border: 1px solid var(--border);
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      .project-details {
+        max-height: 0;
+        overflow: hidden;
+        border-top: 1px solid var(--border);
+        padding: 0 1.25rem;
+        background-color: #f9fafb;
+        transition: max-height 0.35s ease-out, padding-top 0.2s ease-out, padding-bottom 0.2s ease-out, background-color 0.2s ease-out;
       }
 
-      .project-detail h2 {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
+      .project-details-inner {
+        padding: 0.75rem 0 1rem;
+        font-size: 0.95rem;
+        color: #374151;
       }
 
-      .project-detail .meta {
-        font-size: 0.9rem;
+      .project-details-inner p {
+        margin: 0.4rem 0;
+      }
+
+      .project-details-inner .tagline {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
         color: var(--text-muted);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.2rem;
       }
 
-      .project-detail img {
-        max-width: 100%;
-        display: block;
-        margin-top: 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid var(--border);
+      .project-details-inner .tech {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .project-details.open {
+        padding-top: 0.5rem;
+        padding-bottom: 0.75rem;
+        background-color: #eff6ff;
+      }
+
+      .project-card.open .project-toggle {
+        color: #1d4ed8;
       }
 
       footer {
@@ -185,120 +217,158 @@
       </div>
     </header>
 
-        <main>
+    <main>
       <h1>Projects</h1>
       <p class="subtitle">
-        Work that combines computer science, research, and human-centered design.
+        Work that connects computer science, research, and human-centered design.
+        Click a project to see more details.
       </p>
 
-      <!-- Clickable project overview cards -->
       <div class="card-list">
-        <article class="card">
-          <div class="card-title">
-            <a href="#project-vtc">Video Time Capsule (VTC)</a>
+        <!-- VTC -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-title">Video Time Capsule (VTC)</div>
+              <div class="project-meta">Founder & Designer · 2023 – 2025</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
           </div>
-          <div class="card-meta">Founder & Designer · 2023 – 2025</div>
-          <div class="card-body">
-            A senior-friendly app experience for preserving elders’ stories and connecting younger generations.
+          <div class="project-preview">
+            A senior-friendly app experience for recording and sharing elders’ stories with younger generations.
           </div>
-        </article>
-
-        <article class="card">
-          <div class="card-title">
-            <a href="#project-research">Humans or Haptics Research</a>
-          </div>
-          <div class="card-meta">Published in the National High School Journal of Science · 2022 – 2023</div>
-          <div class="card-body">
-            Independent research on how human coaches compare with robotic systems for sports training.
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-title">
-            <a href="#project-ai-gesture">AI Hand Gesture Recognition</a>
-          </div>
-          <div class="card-meta">Python · Accessibility · 2022 – 2023</div>
-          <div class="card-body">
-            A Python-based AI project using a search algorithm to recognize hand gestures for people with speech disabilities.
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-title">
-            <a href="#project-tedx">TEDx Santa Cruz Talk</a>
-          </div>
-          <div class="card-meta">Speaker · Sep 2024</div>
-          <div class="card-body">
-            Talk on the motivation behind VTC, focusing on storytelling, connection, and engaging a live audience.
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                Video Time Capsule focuses on making storytelling feel natural for elders.
+                The design uses clear visuals, large touch targets, and simple flows so users can spend time talking, not navigating menus.
+              </p>
+              <p>
+                The project deepened my interest in human-centered design and showed how carefully chosen UI patterns can make technology more inclusive.
+              </p>
+              <p class="tech">
+                Tech & skills: product design, user experience, front-end prototyping, storytelling.
+              </p>
+              <!-- Example screenshot placeholder
+              <p><img src="images/vtc-screenshot.png" alt="Screenshot of Video Time Capsule" style="max-width:100%;border-radius:0.5rem;border:1px solid #e5e7eb;"></p>
+              -->
+            </div>
           </div>
         </article>
 
-        <article class="card">
-          <div class="card-title">
-            <a href="#project-podcast">Winning Edge Podcast Feature</a>
+        <!-- Humans or Haptics -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-title">Humans or Haptics – Sports Training Research</div>
+              <div class="project-meta">National High School Journal of Science · 2022 – 2023</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
           </div>
-          <div class="card-meta">Guest Speaker · Nov 2023</div>
-          <div class="card-body">
-            Conversation about balancing athletics, rigorous academics, and personal passions through time management and resilience.
+          <div class="project-preview">
+            Independent research comparing how athletes learn from human coaches versus robotic training systems.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                This project analyzed biomechanical and cognitive aspects of training, asking how feedback, repetition,
+                and perception differ between human and robotic coaches.
+              </p>
+              <p>
+                The work culminated in a peer-reviewed publication and strengthened my ability to design studies,
+                interpret data, and write clearly about technical topics.
+              </p>
+              <p class="tech">
+                Skills: research design, data analysis, scientific writing, communicating technical ideas.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- AI Hand Gesture Recognition -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-title">AI Hand Gesture Recognition</div>
+              <div class="project-meta">Python · Accessibility · 2022 – 2023</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            A Python-based prototype that recognizes hand gestures to support people with speech disabilities.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                This prototype explored search-based algorithms and computer vision techniques to map hand positions
+                to commands or phrases, aiming to provide an alternate communication channel.
+              </p>
+              <p>
+                Building it gave me practical experience with algorithm design and showed how small technical choices
+                impact both accuracy and user experience.
+              </p>
+              <p class="tech">
+                Tech: Python · algorithms · basic AI concepts · experimentation.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- TEDx -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-title">TEDx Santa Cruz Talk</div>
+              <div class="project-meta">Speaker · September 2024</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            A talk on the motivation behind Video Time Capsule and the importance of intergenerational storytelling.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                In this talk, I shared why capturing elders’ stories matters and how thoughtful design can make that process
+                easier and more meaningful. Audience participation helped keep the conversation grounded and interactive.
+              </p>
+              <p class="tech">
+                Skills: public speaking, narrative building, explaining technical ideas to broad audiences.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Podcast -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-title">Winning Edge Podcast Feature</div>
+              <div class="project-meta">Guest · November 2023</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            A conversation about balancing competitive table tennis, school, and projects through time management and resilience.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                On the Winning Edge Podcast, I talked about what it looks like to move between training, coursework,
+                and side projects without losing sight of why each matters to me.
+              </p>
+              <p class="tech">
+                Skills: communication, reflection, sharing lessons learned from sports and academics.
+              </p>
+            </div>
           </div>
         </article>
       </div>
-
-      <!-- Detailed sections for each project -->
-      <section id="project-vtc" class="project-detail">
-        <h2>Video Time Capsule (VTC)</h2>
-        <div class="meta">Founder & Designer · 2023 – 2025 · vtcmemories.net</div>
-        <p>
-          Video Time Capsule is an app experience designed to help elders record and share their stories in a way that feels welcoming and intuitive.
-          The interface emphasizes large, clear visuals and simple flows so users can focus on storytelling instead of navigating menus.
-        </p>
-        <p>
-          Working on VTC strengthened my interest in human-centered design and showed me how thoughtful UI choices can make technology more inclusive across generations.
-        </p>
-        <!-- <img src="images/vtc-screenshot.png" alt="Screenshot of the Video Time Capsule interface"> -->
-      </section>
-
-      <section id="project-research" class="project-detail">
-        <h2>Humans or Haptics: Robots for Sports Training</h2>
-        <div class="meta">National High School Journal of Science · 2022 – 2023</div>
-        <p>
-          For this research project, I explored whether athletes learn more effectively from human coaches or robotic training systems.
-          The work examined both biomechanical and cognitive aspects of training, looking at how feedback, repetition, and perception influence performance.
-        </p>
-        <p>
-          The project culminated in a peer-reviewed publication and gave me experience designing a study, interpreting data, and communicating results clearly to both technical and non-technical audiences.
-        </p>
-      </section>
-
-      <section id="project-ai-gesture" class="project-detail">
-        <h2>AI Hand Gesture Recognition</h2>
-        <div class="meta">Python · 2022 – 2023</div>
-        <p>
-          Built a prototype gesture-recognition system in Python aimed at supporting people with speech disabilities.
-          The system uses a search-based approach to interpret hand positions and map them to commands or phrases.
-        </p>
-        <p>
-          This project deepened my interest in AI for accessibility and taught me how algorithm choices affect both accuracy and user experience.
-        </p>
-      </section>
-
-      <section id="project-tedx" class="project-detail">
-        <h2>TEDx Santa Cruz Talk</h2>
-        <div class="meta">Speaker · September 15, 2024</div>
-        <p>
-          I spoke at TEDx Santa Cruz about the motivation behind Video Time Capsule and why capturing intergenerational stories matters.
-          The talk included audience participation and emphasized the role of empathy and design in building tools that people actually want to use.
-        </p>
-      </section>
-
-      <section id="project-podcast" class="project-detail">
-        <h2>Winning Edge Podcast Feature</h2>
-        <div class="meta">Guest · November 2023</div>
-        <p>
-          As a guest on the Winning Edge Podcast, I discussed what it looks like to balance competitive table tennis, rigorous schoolwork, and side projects.
-          We focused on time management, resilience, and how sports and academics reinforce each other.
-        </p>
-      </section>
     </main>
 
     <footer>
@@ -307,6 +377,33 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      const cards = document.querySelectorAll(".project-card");
+
+      cards.forEach(card => {
+        const details = card.querySelector(".project-details");
+        const toggle = card.querySelector(".project-toggle");
+
+        card.addEventListener("click", () => {
+          const isOpen = card.classList.contains("open");
+
+          // Close all cards first
+          cards.forEach(c => {
+            c.classList.remove("open");
+            const d = c.querySelector(".project-details");
+            const t = c.querySelector(".project-toggle");
+            d.style.maxHeight = null;
+            if (t) t.textContent = "View details ↓";
+          });
+
+          // If it was not open before, open it now
+          if (!isOpen) {
+            card.classList.add("open");
+            details.style.maxHeight = details.scrollHeight + "px";
+            toggle.textContent = "Hide details ↑";
+          }
+        });
+      });
     </script>
   </body>
 </html>
