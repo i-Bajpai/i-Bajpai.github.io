@@ -183,7 +183,7 @@
         color: var(--text-muted);
       }
 
-      .project-details.open {
+      .project-card.open .project-details {
         padding-top: 0.5rem;
         padding-bottom: 0.75rem;
         background-color: #eff6ff;
@@ -199,6 +199,36 @@
         text-align: center;
         font-size: 0.9rem;
         color: var(--text-muted);
+      }
+
+      /* Scroll-to-top button */
+      #scrollTopBtn {
+        position: fixed;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        border: none;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+      }
+
+      #scrollTopBtn.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #1d4ed8;
       }
     </style>
   </head>
@@ -225,7 +255,6 @@
       </p>
 
       <div class="card-list">
-        <!-- VTC -->
         <article class="project-card">
           <div class="project-header">
             <div class="project-title-group">
@@ -250,14 +279,10 @@
               <p class="tech">
                 Tech & skills: product design, user experience, front-end prototyping, storytelling.
               </p>
-              <!-- Example screenshot placeholder
-              <p><img src="images/vtc-screenshot.png" alt="Screenshot of Video Time Capsule" style="max-width:100%;border-radius:0.5rem;border:1px solid #e5e7eb;"></p>
-              -->
             </div>
           </div>
         </article>
 
-        <!-- Humans or Haptics -->
         <article class="project-card">
           <div class="project-header">
             <div class="project-title-group">
@@ -287,7 +312,6 @@
           </div>
         </article>
 
-        <!-- AI Hand Gesture Recognition -->
         <article class="project-card">
           <div class="project-header">
             <div class="project-title-group">
@@ -317,7 +341,6 @@
           </div>
         </article>
 
-        <!-- TEDx -->
         <article class="project-card">
           <div class="project-header">
             <div class="project-title-group">
@@ -343,7 +366,6 @@
           </div>
         </article>
 
-        <!-- Podcast -->
         <article class="project-card">
           <div class="project-header">
             <div class="project-title-group">
@@ -375,6 +397,8 @@
       © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
     </footer>
 
+    <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -387,7 +411,6 @@
         card.addEventListener("click", () => {
           const isOpen = card.classList.contains("open");
 
-          // Close all cards first
           cards.forEach(c => {
             c.classList.remove("open");
             const d = c.querySelector(".project-details");
@@ -396,13 +419,24 @@
             if (t) t.textContent = "View details ↓";
           });
 
-          // If it was not open before, open it now
           if (!isOpen) {
             card.classList.add("open");
             details.style.maxHeight = details.scrollHeight + "px";
             toggle.textContent = "Hide details ↑";
           }
         });
+      });
+
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 250) {
+          scrollBtn.classList.add("visible");
+        } else {
+          scrollBtn.classList.remove("visible");
+        }
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     </script>
   </body>
