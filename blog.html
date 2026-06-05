@@ -7,7 +7,7 @@
     <style>
       :root {
         --bg: #f4f5f7;
-        --page-bg: #fdfaf5;   /* slightly warm, old-paper tone */
+        --page-bg: #fdfaf5;
         --card-bg: #ffffff;
         --border: #d4d4d4;
         --text-main: #222222;
@@ -21,7 +21,7 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif; /* retro blog feel */
+        font-family: Georgia, "Times New Roman", serif;
         background-color: var(--bg);
         color: var(--text-main);
       }
@@ -93,8 +93,8 @@
 
       .blog-header {
         border-bottom: 1px solid var(--border);
-        padding-bottom: 1rem;
-        margin-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.75rem;
       }
 
       .blog-title {
@@ -106,6 +106,37 @@
         margin: 0;
         font-size: 0.95rem;
         color: var(--text-muted);
+      }
+
+      /* Typing animation line */
+      .typing-line {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #4b5563;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .typing-text {
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #4b5563;
+        font-family: "Courier New", monospace;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 0.1rem;
+        height: 1.1em;
+        margin-left: 2px;
+        background-color: #4b5563;
+        animation: blink 0.9s steps(1) infinite;
+      }
+
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
       }
 
       .post-list {
@@ -182,12 +213,16 @@
       </div>
     </header>
 
-        <main>
+    <main>
       <header class="blog-header">
         <h1 class="blog-title">Notebook</h1>
         <p class="blog-subtitle">
           Short updates on what I’m building, researching, and learning as a CS student and athlete.
         </p>
+        <div class="typing-line">
+          <span>Currently writing about</span>
+          <span class="typing-text" id="typing-text"></span><span class="cursor"></span>
+        </div>
       </header>
 
       <ul class="post-list">
@@ -261,20 +296,6 @@
             These groups keep me grounded while I’m pushing in classes and projects.
           </p>
         </li>
-
-        <li class="post-item">
-          <p class="post-tag">reflection</p>
-          <h2 class="post-title">
-            <a href="#">Balancing code, research, and competition</a>
-          </h2>
-          <p class="post-meta">
-            Inspired by my Winning Edge podcast appearance
-          </p>
-          <p class="post-excerpt">
-            Competing in table tennis while studying CS has forced me to think seriously about time management and priorities.
-            The same discipline that goes into training also shows up when I’m debugging code at midnight or polishing a research writeup.
-          </p>
-        </li>
       </ul>
     </main>
 
@@ -284,6 +305,47 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      const phrases = [
+        "projects.",
+        "research.",
+        "practice sessions.",
+        "new ideas.",
+        "what I’m learning."
+      ];
+
+      const typingElement = document.getElementById("typing-text");
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function typeLoop() {
+        const current = phrases[phraseIndex];
+
+        if (!deleting) {
+          typingElement.textContent = current.slice(0, charIndex + 1);
+          charIndex++;
+
+          if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(typeLoop, 1200);
+            return;
+          }
+        } else {
+          typingElement.textContent = current.slice(0, charIndex - 1);
+          charIndex--;
+
+          if (charIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+          }
+        }
+
+        const delay = deleting ? 60 : 80;
+        setTimeout(typeLoop, delay);
+      }
+
+      typeLoop();
     </script>
   </body>
 </html>
