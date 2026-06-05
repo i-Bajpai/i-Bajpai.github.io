@@ -213,7 +213,8 @@
 
       <!-- Timeline container -->
       <div class="timeline">
-        <!-- Purdue CS focus -->
+        <!-- Newest items at top -->
+
         <div class="timeline-item tech">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -229,11 +230,36 @@
         <div class="timeline-item tech">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
+            <div class="timeline-year">2025 – Present</div>
+            <h2>Purdue Electric Racing & CS Women’s Network</h2>
+            <p>
+              Contributing to controls in Purdue Electric Racing and participating in the Computer Science Women’s Network,
+              gaining experience working on real systems while building community in tech.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item tech">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
             <div class="timeline-year">2025</div>
             <h2>CS Bridge & Early Programming</h2>
             <p>
               Completed an intensive CS Bridge program that accelerated Java fundamentals and built on dual-enrollment
               experience in Python and Java, giving me a head start on Purdue coursework.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item tech">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2024 – Present</div>
+            <h2>Communicating Tech: TEDx & Podcast</h2>
+            <p>
+              Shared the story behind Video Time Capsule at TEDx Santa Cruz and discussed balancing athletics,
+              academics, and projects on the Winning Edge Podcast, strengthening my ability to explain technical
+              ideas to broad audiences.
             </p>
           </div>
         </div>
@@ -275,32 +301,7 @@
           </div>
         </div>
 
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2024 – Present</div>
-            <h2>Communicating Tech: TEDx & Podcast</h2>
-            <p>
-              Shared the story behind Video Time Capsule at TEDx Santa Cruz and discussed balancing athletics,
-              academics, and projects on the Winning Edge Podcast, strengthening my ability to explain technical
-              ideas to broad audiences.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2025 – Present</div>
-            <h2>Purdue Electric Racing & CS Women’s Network</h2>
-            <p>
-              Contributing to controls in Purdue Electric Racing and participating in the Computer Science Women’s Network,
-              gaining experience working on real systems while building community in tech.
-            </p>
-          </div>
-        </div>
-
-        <!-- Table tennis & sports -->
+        <!-- Oldest, long-running thing at the bottom -->
         <div class="timeline-item sports">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -320,10 +321,8 @@
     </footer>
 
     <script>
-      // Set the current year in the footer
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Simple scroll reveal for timeline items
       const timelineItems = document.querySelectorAll(".timeline-item");
 
       function onScroll() {
@@ -337,7 +336,6 @@
       }
 
       window.addEventListener("scroll", onScroll);
-      // Trigger on load
       onScroll();
     </script>
   </body>
