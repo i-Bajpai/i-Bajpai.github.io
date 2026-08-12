@@ -107,6 +107,20 @@
         transform: translateY(0);
       }
 
+      .hero-header-badge {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background-color: #eff6ff;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        margin-bottom: 0.75rem;
+        border: 1px solid #dbeafe;
+      }
+
       h1 {
         margin: 0 0 0.5rem;
         font-size: 2.25rem;
@@ -118,7 +132,7 @@
         margin-bottom: 2rem;
         font-size: 1.1rem;
         line-height: 1.5;
-        max-width: 800px;
+        max-width: 820px;
       }
 
       .two-column {
@@ -138,6 +152,36 @@
         line-height: 1.65;
         color: #374151;
         font-size: 1rem;
+      }
+
+      /* Visual Tech Banner/Graphic */
+      .intersection-graphic {
+        background: linear-gradient(135deg, #f0f7ff 0%, #fae8ff 50%, #f0fdf4 100%);
+        border: 1px solid #e0e7ff;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+      }
+
+      .node-item {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #334155;
+      }
+
+      .node-icon {
+        font-size: 1.4rem;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .node-connector {
+        color: #94a3b8;
+        font-size: 1.2rem;
       }
 
       .hero-actions {
@@ -270,34 +314,52 @@
 
     <main>
       <section class="hero-card">
+        <span class="hero-header-badge">CS + Systems + Human Interaction</span>
         <h1>Hi, I’m Isha.</h1>
         <p class="subtitle">
-          Computer Science student at Purdue University with a minor in Management, combining human-centered UX design, software development, and campus leadership.
+          Computer Science student at Purdue University actively carving out a niche where software systems, artificial intelligence, human biomechanics, and intuitive design converge.
         </p>
+
+        <div class="intersection-graphic" aria-hidden="true">
+          <div class="node-item">
+            <span class="node-icon">💻</span>
+            System Architecture
+          </div>
+          <span class="node-connector">⚡</span>
+          <div class="node-item">
+            <span class="node-icon">🧠</span>
+            Assistive AI & Haptics
+          </div>
+          <span class="node-connector">⚡</span>
+          <div class="node-item">
+            <span class="node-icon">🫀</span>
+            Biomechanical Systems
+          </div>
+        </div>
 
         <div class="two-column">
           <div class="bio-text">
             <p>
-              I enjoy solving complex problems by breaking them down into intuitive, user-friendly solutions—whether through coding, design systems, or data analytics. My technical foundation spans Java, Python, C, and R, coupled with creative experience in digital graphics and UI prototyping.
+              I believe the most meaningful engineering happens when complex computational models meet human physiological and cognitive realities. Rather than staying in a single lane, I am intentionally structuring my academic foundation—combining C systems, linear algebra, discrete mathematics, and microeconomics—to tackle multidisciplinary challenges.
             </p>
             <p>
-              At Purdue, I serve as <strong>Design Lead for CSWN</strong> and <strong>Women’s Team Captain for NCTTA Table Tennis</strong>, while contributing to vehicle controls in <strong>Purdue Electric Racing</strong>. I’m eager to build impactful software that bridges computing, accessibility, and intuitive design.
+              My early work ranges from publishing research on <strong>robotic haptics vs. human sports movement</strong> to engineering <strong>gesture-recognition AI tools</strong> and founding senior accessibility platforms. As <strong>Design Lead at CSWN</strong> and <strong>NCTTA Women's Captain</strong>, I lead with both analytical precision and creative purpose.
             </p>
             <div class="hero-actions">
-              <a href="experience.html" class="btn btn-primary">View Experience</a>
-              <a href="projects.html" class="btn btn-secondary">Explore Projects</a>
+              <a href="projects.html" class="btn btn-primary">Explore My Work</a>
+              <a href="experience.html" class="btn btn-secondary">View Experience</a>
               <a href="mailto:bajpai11@purdue.edu" class="btn btn-secondary">Get in Touch</a>
             </div>
           </div>
           <div>
             <div class="card">
-              <h2 class="section-title">At a Glance</h2>
+              <h2 class="section-title">Core Explorations</h2>
               <ul class="quick-facts-list">
-                <li><strong>Education:</strong> Purdue University – B.S. in Computer Science, Minor in Management (Rising Sophomore, GPA 3.57)</li>
-                <li><strong>Technical Skills:</strong> Java, Python, C, R, Linear Algebra, Discrete Math</li>
-                <li><strong>Design & UX:</strong> Adobe Illustrator, Photoshop, UI/UX Design, Fusion 360, Tinkercad</li>
-                <li><strong>Leadership:</strong> Design Lead (CSWN), Women's Captain (NCTTA Table Tennis), Controls Subteam (PER)</li>
-                <li><strong>Athletics:</strong> Former Team USA Athlete (#10 USATT U17, #210 World U15)</li>
+                <li><strong>Academic Base:</strong> Purdue CS & Minor in Management (GPA: 3.57, Rising Sophomore)</li>
+                <li><strong>Niche Focus:</strong> Human-computer interaction, assistive AI technologies, biomechanical data models</li>
+                <li><strong>Technical Stack:</strong> Java, Python, C, R, Linear Algebra, Discrete Math</li>
+                <li><strong>Design & Prototyping:</strong> Adobe Illustrator/Photoshop, UI/UX Systems, Fusion 360, Tinkercad</li>
+                <li><strong>Leadership:</strong> CSWN Design Lead, Purdue NCTTA Women's Captain, PER Controls Subteam</li>
               </ul>
             </div>
           </div>
