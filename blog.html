@@ -6,18 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       :root {
-        --bg: #f4f5f7;
-        --page-bg: #fdfaf5;
-        --card-bg: #ffffff;
-        --border: #d4d4d4;
-        --text-main: #222222;
-        --text-muted: #6b7280;
-        --accent: #2563eb;
+        --bg: #faf6f0;
+        --page-bg: #ffffff;
+        --border: #e6ded3;
+        --border-dark: #291e18;
+        --text-main: #291e18;
+        --text-muted: #6e6057;
+        --accent: #8c4a2f;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       body {
         margin: 0;
@@ -26,134 +24,97 @@
         color: var(--text-main);
       }
 
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+      a { text-decoration: none; color: inherit; }
 
       header {
         position: sticky;
         top: 0;
         z-index: 10;
-        background-color: #ffffff;
-        border-bottom: 1px solid var(--border);
+        background-color: rgba(250, 246, 240, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 2px solid var(--border-dark);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       .nav-container {
         max-width: 960px;
         margin: 0 auto;
-        padding: 0.75rem 1.25rem;
+        padding: 0.85rem 1.25rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
         gap: 0.5rem;
       }
 
       .brand {
-        font-weight: 700;
-        font-size: 1.1rem;
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
       }
 
       nav ul {
         list-style: none;
         display: flex;
-        gap: 1.25rem;
+        gap: 1.5rem;
         margin: 0;
         padding: 0;
       }
 
-      nav li {
-        font-size: 0.95rem;
-        font-weight: 500;
-      }
-
       nav a {
-        padding-bottom: 0.1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding-bottom: 0.2rem;
         border-bottom: 2px solid transparent;
-        transition: color 0.2s ease, border-color 0.2s ease;
+        transition: all 0.2s ease;
       }
 
-      nav a:hover {
-        color: var(--accent);
-      }
-
-      nav a.active {
+      nav a:hover, nav a.active {
         color: var(--accent);
         border-color: var(--accent);
       }
 
       main {
         max-width: 720px;
-        margin: 0 auto;
-        padding: 2rem 1.25rem 3rem;
+        margin: 2rem auto;
+        padding: 2.25rem 1.75rem 3rem;
         background-color: var(--page-bg);
-        border-left: 1px solid var(--border);
-        border-right: 1px solid var(--border);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-        min-height: 80vh;
+        border: 2px solid var(--border-dark);
+        box-shadow: 6px 6px 0px var(--border-dark);
+        border-radius: 4px;
       }
 
       .blog-header {
-        border-bottom: 1px solid var(--border);
+        border-bottom: 2px solid var(--border-dark);
         padding-bottom: 1.25rem;
         margin-bottom: 1.75rem;
       }
 
       .blog-title {
         margin: 0 0 0.25rem;
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .blog-subtitle {
         margin: 0;
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: var(--text-muted);
         line-height: 1.5;
       }
 
       .typing-line {
         margin-top: 0.75rem;
-        font-size: 0.95rem;
-        color: #4b5563;
+        font-size: 0.85rem;
+        color: var(--text-muted);
         display: flex;
         align-items: center;
-        gap: 0.25rem;
+        gap: 0.3rem;
+        font-family: monospace;
       }
 
       .typing-text {
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 2px solid #4b5563;
-        font-family: "Courier New", monospace;
-      }
-
-      .cursor {
-        display: inline-block;
-        width: 0.1rem;
-        height: 1.1em;
-        margin-left: 2px;
-        background-color: #4b5563;
-        animation: blink 0.9s steps(1) infinite;
-      }
-
-      @keyframes blink {
-        0%, 50% { opacity: 1; }
-        50.01%, 100% { opacity: 0; }
-      }
-
-      /* Screen reader accessibility helper */
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
+        color: var(--accent);
+        font-weight: bold;
       }
 
       .post-list {
@@ -163,21 +124,27 @@
       }
 
       .post-item {
-        padding: 1.25rem 0;
-        border-bottom: 1px dashed var(--border);
+        padding: 1.5rem 0;
+        border-bottom: 2px dashed var(--border);
       }
 
       .post-item:last-of-type {
         border-bottom: none;
       }
 
-      .post-title {
-        margin: 0;
-        font-size: 1.15rem;
+      .post-tag {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        font-weight: bold;
+        font-family: system-ui, sans-serif;
+        margin-bottom: 0.2rem;
       }
 
-      .post-title a {
-        color: #1f2933;
+      .post-title {
+        margin: 0;
+        font-size: 1.25rem;
       }
 
       .post-title a:hover {
@@ -189,59 +156,22 @@
         margin-top: 0.25rem;
         font-size: 0.85rem;
         color: var(--text-muted);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: system-ui, sans-serif;
       }
 
       .post-excerpt {
         margin-top: 0.6rem;
-        font-size: 0.95rem;
-        line-height: 1.5;
-      }
-
-      .post-tag {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: var(--text-muted);
-        margin: 0 0 0.2rem 0;
+        font-size: 1rem;
+        line-height: 1.6;
       }
 
       footer {
-        border-top: 1px solid var(--border);
+        border-top: 2px solid var(--border-dark);
         padding: 1.5rem 1.25rem;
         text-align: center;
         font-size: 0.9rem;
         color: var(--text-muted);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      #scrollTopBtn {
-        position: fixed;
-        right: 1.25rem;
-        bottom: 1.25rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 999px;
-        border: none;
-        background-color: #2563eb;
-        color: #ffffff;
-        font-size: 1.3rem;
-        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
-        cursor: pointer;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(10px);
-        transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-      }
-
-      #scrollTopBtn.visible {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      #scrollTopBtn:hover {
-        background-color: #1d4ed8;
+        font-family: system-ui, sans-serif;
       }
     </style>
   </head>
@@ -266,95 +196,75 @@
         <p class="blog-subtitle">
           Short updates on what I’m building, researching, and learning as a CS student and athlete.
         </p>
-        <div class="typing-line" aria-hidden="true">
-          <span>Currently writing about</span>
-          <span class="typing-text" id="typing-text"></span><span class="cursor"></span>
+        <div class="typing-line">
+          <span>Currently writing about:</span>
+          <span class="typing-text" id="typing-text"></span>
         </div>
-        <span class="sr-only">Currently writing about projects, research, practice sessions, and new ideas.</span>
       </header>
 
       <ul class="post-list">
         <li class="post-item">
           <article>
-            <p class="post-tag">update</p>
-            <h2 class="post-title">
-              <a href="#">Launching this portfolio</a>
-            </h2>
+            <div class="post-tag">update</div>
+            <h2 class="post-title"><a href="#">Launching this portfolio</a></h2>
             <p class="post-meta">2026 · San Jose / West Lafayette</p>
             <p class="post-excerpt">
-              Finally pulled together a space to connect everything I’m working on: research, projects like Video Time Capsule,
-              clubs at Purdue, and table tennis. The goal is to keep this updated with small, honest snapshots instead of only polished milestones.
+              Finally pulled together a space to connect everything I’m working on: research, projects like Video Time Capsule, clubs at Purdue, and table tennis. The goal is to keep this updated with small, honest snapshots instead of only polished milestones.
             </p>
           </article>
         </li>
 
         <li class="post-item">
           <article>
-            <p class="post-tag">transition</p>
-            <h2 class="post-title">
-              <a href="#">Closing one chapter, starting another</a>
-            </h2>
+            <div class="post-tag">transition</div>
+            <h2 class="post-title"><a href="#">Closing one chapter, starting another</a></h2>
             <p class="post-meta">Summer 2025 · High school → Purdue</p>
             <p class="post-excerpt">
-              Finished high school in 2025 and immediately stepped into a new chapter at Purdue.
-              It feels like carrying forward everything I learned—from classes to projects to sports—into a bigger arena with new people, harder problems, and more room to grow.
+              Finished high school in 2025 and immediately stepped into a new chapter at Purdue. It feels like carrying forward everything I learned—from classes to projects to sports—into a bigger arena with new people, harder problems, and more room to grow.
             </p>
           </article>
         </li>
 
         <li class="post-item">
           <article>
-            <p class="post-tag">projects</p>
-            <h2 class="post-title">
-              <a href="#">Iterating on Video Time Capsule (VTC)</a>
-            </h2>
+            <div class="post-tag">projects</div>
+            <h2 class="post-title"><a href="#">Iterating on Video Time Capsule (VTC)</a></h2>
             <p class="post-meta">2023–2025 · Design & storytelling</p>
             <p class="post-excerpt">
-              Still thinking about how to make technology feel natural for elders.
-              VTC started as a way to preserve stories with a senior-friendly interface, and I’m continuing to explore features that make recording and sharing memories feel simple and safe for families.
+              Still thinking about how to make technology feel natural for elders. VTC started as a way to preserve stories with a senior-friendly interface, and I’m continuing to explore features that make recording and sharing memories feel simple and safe for families.
             </p>
           </article>
         </li>
 
         <li class="post-item">
           <article>
-            <p class="post-tag">research</p>
-            <h2 class="post-title">
-              <a href="#">Robots, coaches, and sports training</a>
-            </h2>
+            <div class="post-tag">research</div>
+            <h2 class="post-title"><a href="#">Robots, coaches, and sports training</a></h2>
             <p class="post-meta">Reflecting on my NHSJS publication</p>
             <p class="post-excerpt">
-              My “Humans or Haptics” project looked at how robotic training systems compare to human coaches in sports.
-              Revisiting that work now, I’m still fascinated by how biomechanics, cognition, and feedback combine—and how these ideas might apply to future tools in athletics.
+              My “Humans or Haptics” project looked at how robotic training systems compare to human coaches in sports. Revisiting that work now, I’m still fascinated by how biomechanics, cognition, and feedback combine—and how these ideas might apply to future tools in athletics.
             </p>
           </article>
         </li>
 
         <li class="post-item">
           <article>
-            <p class="post-tag">learning</p>
-            <h2 class="post-title">
-              <a href="#">Settling into CS at Purdue</a>
-            </h2>
+            <div class="post-tag">learning</div>
+            <h2 class="post-title"><a href="#">Settling into CS at Purdue</a></h2>
             <p class="post-meta">Computer Science · Sophomore year</p>
             <p class="post-excerpt">
-              Classes like C programming, discrete math, linear algebra, and data-focused seminars are giving me a stronger foundation for the projects I care about.
-              I’m especially interested in how theory in these courses connects to AI, data analytics, and accessibility work.
+              Classes like C programming, discrete math, linear algebra, and data-focused seminars are giving me a stronger foundation for the projects I care about. I’m especially interested in how theory in these courses connects to AI, data analytics, and accessibility work.
             </p>
           </article>
         </li>
 
         <li class="post-item">
           <article>
-            <p class="post-tag">teams</p>
-            <h2 class="post-title">
-              <a href="#">Finding community: PER, CSWN, and NCTTA</a>
-            </h2>
+            <div class="post-tag">teams</div>
+            <h2 class="post-title"><a href="#">Finding community: PER, CSWN, and NCTTA</a></h2>
             <p class="post-meta">Clubs & athletics · 2025 – Present</p>
             <p class="post-excerpt">
-              Between Purdue Electric Racing, the Computer Science Women’s Network, and NCTTA table tennis,
-              I’m surrounded by people who care about both performance and support.
-              These groups keep me grounded while I’m pushing in classes and projects.
+              Between Purdue Electric Racing, the Computer Science Women’s Network, and NCTTA table tennis, I’m surrounded by people who care about both performance and support. These groups keep me grounded while I’m pushing in classes and projects.
             </p>
           </article>
         </li>
@@ -364,8 +274,6 @@
     <footer>
       © <span id="year"></span> Isha Bajpai · Blog
     </footer>
-
-    <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -377,7 +285,7 @@
         "new ideas.",
         "what I’m learning."
       ];
-
+      
       const typingElement = document.getElementById("typing-text");
       let phraseIndex = 0;
       let charIndex = 0;
@@ -385,11 +293,9 @@
 
       function typeLoop() {
         const current = phrases[phraseIndex];
-
         if (!deleting) {
           typingElement.textContent = current.slice(0, charIndex + 1);
           charIndex++;
-
           if (charIndex === current.length) {
             deleting = true;
             setTimeout(typeLoop, 1200);
@@ -398,30 +304,14 @@
         } else {
           typingElement.textContent = current.slice(0, charIndex - 1);
           charIndex--;
-
           if (charIndex === 0) {
             deleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
           }
         }
-
-        const delay = deleting ? 60 : 80;
-        setTimeout(typeLoop, delay);
+        setTimeout(typeLoop, deleting ? 50 : 80);
       }
-
       typeLoop();
-
-      const scrollBtn = document.getElementById("scrollTopBtn");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 250) {
-          scrollBtn.classList.add("visible");
-        } else {
-          scrollBtn.classList.remove("visible");
-        }
-      });
-      scrollBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
     </script>
   </body>
 </html>
