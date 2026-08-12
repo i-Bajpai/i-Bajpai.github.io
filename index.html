@@ -267,6 +267,11 @@
         color: var(--text-muted);
       }
 
+      footer a {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
       #scrollTopBtn {
         position: fixed;
         right: 1.25rem;
@@ -317,7 +322,7 @@
         <span class="hero-header-badge">CS + Systems + Human Interaction</span>
         <h1>Hi, I’m Isha.</h1>
         <p class="subtitle">
-          Computer Science student at Purdue University actively carving out a niche where software systems, artificial intelligence, human biomechanics, and intuitive design converge.
+          Computer Science student at Purdue University actively carving out a niche where software systems, artificial intelligence, human biomechanics, and intuitive design intersect.
         </p>
 
         <div class="intersection-graphic" aria-hidden="true">
@@ -343,23 +348,24 @@
               I believe the most meaningful engineering happens when complex computational models meet human physiological and cognitive realities. Rather than staying in a single lane, I am intentionally structuring my academic foundation—combining C systems, linear algebra, discrete mathematics, and microeconomics—to tackle multidisciplinary challenges.
             </p>
             <p>
-              My early work ranges from publishing research on <strong>robotic haptics vs. human sports movement</strong> to engineering <strong>gesture-recognition AI tools</strong> and founding senior accessibility platforms. As <strong>Design Lead at CSWN</strong> and <strong>NCTTA Women's Captain</strong>, I lead with both analytical precision and creative purpose.
+              My early work ranges from publishing research on <a href="https://nhsjs.com/2023/humans-or-haptics-a-deep-dive-into-robots-for-sports-training/" target="_blank" style="color:var(--accent); text-decoration:underline;">robotic haptics vs. human sports movement</a> to engineering gesture-recognition AI tools and founding senior accessibility platforms. As <strong>Design Lead at CSWN</strong> and <strong>NCTTA Women's Captain</strong>, I lead with both analytical precision and creative purpose.
             </p>
             <div class="hero-actions">
-              <a href="projects.html" class="btn btn-primary">Explore My Work</a>
-              <a href="experience.html" class="btn btn-secondary">View Experience</a>
-              <a href="mailto:bajpai11@purdue.edu" class="btn btn-secondary">Get in Touch</a>
+              <a href="https://www.linkedin.com/in/isha-bajpai-38a848333/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+              <a href="mailto:isha.bajpai11@gmail.com" class="btn btn-secondary">Email Me</a>
+              <a href="projects.html" class="btn btn-secondary">Explore Projects</a>
             </div>
           </div>
           <div>
             <div class="card">
-              <h2 class="section-title">Core Explorations</h2>
+              <h2 class="section-title">At a Glance</h2>
               <ul class="quick-facts-list">
                 <li><strong>Academic Base:</strong> Purdue CS & Minor in Management (GPA: 3.57, Rising Sophomore)</li>
                 <li><strong>Niche Focus:</strong> Human-computer interaction, assistive AI technologies, biomechanical data models</li>
                 <li><strong>Technical Stack:</strong> Java, Python, C, R, Linear Algebra, Discrete Math</li>
-                <li><strong>Design & Prototyping:</strong> Adobe Illustrator/Photoshop, UI/UX Systems, Fusion 360, Tinkercad</li>
-                <li><strong>Leadership:</strong> CSWN Design Lead, Purdue NCTTA Women's Captain, PER Controls Subteam</li>
+                <li><strong>Leadership:</strong> Design Lead (CSWN), Purdue NCTTA Women's Captain</li>
+                <li><strong>Engineering Teams:</strong> Controls Subteam (Purdue Electric Racing)</li>
+                <li><strong>Contact:</strong> <a href="https://www.linkedin.com/in/isha-bajpai-38a848333/" target="_blank" style="color:var(--accent);">LinkedIn</a> · <a href="mailto:isha.bajpai11@gmail.com" style="color:var(--accent);">isha.bajpai11@gmail.com</a></li>
               </ul>
             </div>
           </div>
@@ -368,7 +374,7 @@
     </main>
 
     <footer>
-      © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
+      © <span id="year"></span> Isha Bajpai · <a href="https://www.linkedin.com/in/isha-bajpai-38a848333/" target="_blank">LinkedIn</a> · <a href="mailto:isha.bajpai11@gmail.com">isha.bajpai11@gmail.com</a>
     </footer>
 
     <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -376,13 +382,11 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Hero fade-in
       const hero = document.querySelector(".hero-card");
       window.addEventListener("DOMContentLoaded", () => {
         if (hero) hero.classList.add("visible");
       });
 
-      // Scroll-to-top logic
       const scrollBtn = document.getElementById("scrollTopBtn");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 250) {
