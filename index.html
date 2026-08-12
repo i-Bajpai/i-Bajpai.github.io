@@ -89,7 +89,7 @@
         border-radius: 16px 2px 16px 2px;
         padding: 2.25rem 2rem;
         box-shadow: 6px 6px 0px var(--border-dark);
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
       }
 
       .hero-header-badge {
@@ -243,6 +243,63 @@
         box-shadow: 1px 1px 0px var(--border-dark);
       }
 
+      /* Key Skills Section */
+      .skills-section-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      @media (min-width: 768px) {
+        .skills-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .skill-card {
+        background-color: var(--card-bg);
+        border: 2px solid var(--border-dark);
+        border-radius: 12px 2px 12px 2px;
+        padding: 1.25rem;
+        box-shadow: 4px 4px 0px var(--border-dark);
+      }
+
+      .skill-card-header {
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+        font-family: monospace;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .skill-pill {
+        font-size: 0.825rem;
+        font-weight: 600;
+        background-color: var(--bg);
+        color: var(--text-main);
+        padding: 0.3rem 0.6rem;
+        border: 1.5px solid var(--border-dark);
+        border-radius: 4px;
+      }
+
       footer {
         border-top: 2px solid var(--border-dark);
         padding: 1.5rem 1.25rem;
@@ -312,6 +369,44 @@
                 <button class="carousel-btn" id="prevBtn">← Prev</button>
                 <button class="carousel-btn" id="nextBtn">Next →</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="skills-section-title">⚡ Key Skills & Focus Areas</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-card-header">01 // Languages & Systems</div>
+            <div class="skill-tags">
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">C Programming</span>
+              <span class="skill-pill">R</span>
+              <span class="skill-pill">Data Structures</span>
+              <span class="skill-pill">Linux</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-card-header">02 // UX & Creative Tech</div>
+            <div class="skill-tags">
+              <span class="skill-pill">Adobe Illustrator</span>
+              <span class="skill-pill">Adobe Photoshop</span>
+              <span class="skill-pill">Senior-Friendly UI/UX</span>
+              <span class="skill-pill">Fusion 360</span>
+              <span class="skill-pill">Tinkercad</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-card-header">03 // Leadership & Strategy</div>
+            <div class="skill-tags">
+              <span class="skill-pill">Team Captaincy (NCTTA)</span>
+              <span class="skill-pill">Design Leadership (CSWN)</span>
+              <span class="skill-pill">Public Speaking (TEDx)</span>
+              <span class="skill-pill">Time Management</span>
             </div>
           </div>
         </div>
