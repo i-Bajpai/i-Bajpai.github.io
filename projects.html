@@ -221,6 +221,11 @@
         color: var(--text-muted);
       }
 
+      footer a {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
       #scrollTopBtn {
         position: fixed;
         right: 1.25rem;
@@ -303,6 +308,33 @@
         <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div class="project-title-group">
+              <div class="project-title">Humans or Haptics – Sports Training Research</div>
+              <div class="project-meta">Published in NHSJS · 2022 – 2023</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            Peer-reviewed independent research investigating biomechanical and cognitive metrics in robotic vs. human sports coaching.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                Authored <a href="https://nhsjs.com/2023/humans-or-haptics-a-deep-dive-into-robots-for-sports-training/" target="_blank" style="color:var(--accent); text-decoration: underline;"><em>"Humans or Haptics: A Deep-dive into Robots for Sports Training"</em></a>, analyzing how robotic haptic feedback compares against human coaching in skill acquisition and perceptual memory.
+              </p>
+              <p>
+                The research was published in the <em>National High School Journal of Science</em>. You can <a href="https://nhsjs.com/2023/humans-or-haptics-a-deep-dive-into-robots-for-sports-training/" target="_blank" style="color:var(--accent); text-decoration: underline;">read the full publication here on NHSJS.com</a>.
+              </p>
+              <p class="tech">
+                <strong>Skills:</strong> Experimental Research, Biomechanical Analysis, Statistical Data Analysis, Scientific Publishing.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-header">
+            <div class="project-title-group">
               <div class="project-title">CSWN Visual Brand & Media Suite</div>
               <div class="project-meta">Design Lead · Aug 2025 – Present</div>
             </div>
@@ -322,33 +354,6 @@
               </p>
               <p class="tech">
                 <strong>Tools & Skills:</strong> Adobe Illustrator, Adobe Photoshop, Brand Identity, Visual Design, Cross-team Collaboration.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
-          <div class="project-header">
-            <div class="project-title-group">
-              <div class="project-title">Humans or Haptics – Sports Training Research</div>
-              <div class="project-meta">Published in NHSJS · 2022 – 2023</div>
-            </div>
-            <div class="project-toggle">View details ↓</div>
-          </div>
-          <div class="project-preview">
-            Peer-reviewed independent research investigating biomechanical and cognitive metrics in robotic vs. human sports coaching.
-          </div>
-          <div class="project-details">
-            <div class="project-details-inner">
-              <div class="tagline">Overview</div>
-              <p>
-                Authored <em>"Humans or Haptics: A Deep-dive into Robots for Sports Training"</em>, analyzing how robotic haptic feedback compares against human coaching in skill acquisition and perceptual memory.
-              </p>
-              <p>
-                The research was published in the <em>National High School Journal of Science</em>, strengthening my expertise in study design, quantitative data analysis, and technical scientific writing.
-              </p>
-              <p class="tech">
-                <strong>Skills:</strong> Experimental Research, Biomechanical Analysis, Statistical Data Analysis, Scientific Publishing.
               </p>
             </div>
           </div>
@@ -432,7 +437,7 @@
     </main>
 
     <footer>
-      © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
+      © <span id="year"></span> Isha Bajpai · <a href="https://www.linkedin.com/in/isha-bajpai-38a848333/" target="_blank">LinkedIn</a> · <a href="mailto:isha.bajpai11@gmail.com">isha.bajpai11@gmail.com</a>
     </footer>
 
     <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -449,7 +454,6 @@
         function toggleCard() {
           const isOpen = card.classList.contains("open");
 
-          // Close all cards
           cards.forEach(c => {
             c.classList.remove("open");
             c.setAttribute("aria-expanded", "false");
@@ -459,7 +463,6 @@
             if (t) t.textContent = "View details ↓";
           });
 
-          // Toggle clicked card
           if (!isOpen) {
             card.classList.add("open");
             card.setAttribute("aria-expanded", "true");
@@ -477,7 +480,6 @@
         });
       });
 
-      // Scroll to top button logic
       const scrollBtn = document.getElementById("scrollTopBtn");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 250) {
