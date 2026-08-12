@@ -156,7 +156,7 @@
         border-top: 1px solid transparent;
         padding: 0 1.25rem;
         background-color: #f8fafc;
-        transition: max-height 0.3s ease, padding 0.2s ease;
+        transition: max-height 0.35s ease-out, padding 0.2s ease;
       }
 
       .project-details-inner {
@@ -164,6 +164,19 @@
         font-size: 0.95rem;
         color: #2a3644;
         line-height: 1.6;
+      }
+
+      .project-details-inner p {
+        margin: 0.5rem 0;
+      }
+
+      .project-details-inner .tagline {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
       }
 
       .project-details-inner .tech {
@@ -204,13 +217,13 @@
     </header>
 
     <main>
-      <h1>Projects & Research</h1>
+      <h1>Projects & Creative Work</h1>
       <p class="subtitle">
         A showcase of technical development, UX design, research, and public communication. Click any card to expand details.
       </p>
 
       <div class="card-list">
-        <article class="project-card" tabindex="0">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div>
               <div class="project-title">Video Time Capsule (VTC)</div>
@@ -223,8 +236,12 @@
           </div>
           <div class="project-details">
             <div class="project-details-inner">
+              <div class="tagline">Overview & Design Impact</div>
               <p>
-                Video Time Capsule (<a href="http://vtcmemories.net" target="_blank" style="color:var(--accent); font-weight:bold; text-decoration: underline;">vtcmemories.net</a>) focuses on making story recording natural for senior citizens. The interface incorporates high-contrast visual cues and streamlined UX flows to eliminate technical friction.
+                Video Time Capsule (<a href="http://vtcmemories.net" target="_blank" style="color:var(--accent); font-weight:bold; text-decoration: underline;">vtcmemories.net</a>) focuses on making story recording natural and intuitive for senior citizens. The interface incorporates high-contrast visual cues, large touch targets, and streamlined UX flows to eliminate technical friction.
+              </p>
+              <p>
+                This project spearheaded my passion for human-centered UI/UX design and demonstrated how empathetic accessibility choices can bring emerging technology to underrepresented user demographics.
               </p>
               <p class="tech">
                 <strong>Tech & Skills:</strong> UI/UX Prototyping, Accessibility Design, Product Design, Web Development.
@@ -233,7 +250,7 @@
           </div>
         </article>
 
-        <article class="project-card" tabindex="0">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div>
               <div class="project-title">Humans or Haptics – Sports Training Research</div>
@@ -246,17 +263,48 @@
           </div>
           <div class="project-details">
             <div class="project-details-inner">
+              <div class="tagline">Overview</div>
               <p>
-                Authored <a href="https://nhsjs.com/2023/humans-or-haptics-a-deep-dive-into-robots-for-sports-training/" target="_blank" style="color:var(--accent); font-weight:bold; text-decoration: underline;"><em>"Humans or Haptics"</em></a>, analyzing how robotic haptic feedback compares against human coaching in skill acquisition.
+                Authored <a href="https://nhsjs.com/2023/humans-or-haptics-a-deep-dive-into-robots-for-sports-training/" target="_blank" style="color:var(--accent); font-weight:bold; text-decoration: underline;"><em>"Humans or Haptics: A Deep-dive into Robots for Sports Training"</em></a>, analyzing how robotic haptic feedback compares against human coaching in skill acquisition and perceptual memory.
+              </p>
+              <p>
+                The research was published in the <em>National High School Journal of Science</em>. You can <a href="https://nhsjs.com/2023/humans-or-haptics-a-deep-dive-into-robots-for-sports-training/" target="_blank" style="color:var(--accent); font-weight:bold; text-decoration: underline;">read the full publication here on NHSJS.com</a>.
               </p>
               <p class="tech">
-                <strong>Skills:</strong> Experimental Research, Biomechanical Analysis, Statistical Data Analysis.
+                <strong>Skills:</strong> Experimental Research, Biomechanical Analysis, Statistical Data Analysis, Scientific Publishing.
               </p>
             </div>
           </div>
         </article>
 
-        <article class="project-card" tabindex="0">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-header">
+            <div>
+              <div class="project-title">CSWN Visual Brand & Media Suite</div>
+              <div class="project-meta">Design Lead · Aug 2025 – Present</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            Digital branding assets, graphic designs, and promotional media for the Computer Science Women’s Network at Purdue.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                As Design Lead, I conceptualize and design high-impact digital graphics and branding assets for CSWN campus events, workshops, and social channels.
+              </p>
+              <p>
+                I collaborate directly with executive board members to pitch visual ideas, streamline event promotion pipelines, and foster an inclusive, engaging environment for women in technology.
+              </p>
+              <p class="tech">
+                <strong>Tools & Skills:</strong> Adobe Illustrator, Adobe Photoshop, Brand Identity, Visual Design, Cross-team Collaboration.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div>
               <div class="project-title">AI Hand Gesture Recognition Tool</div>
@@ -269,11 +317,63 @@
           </div>
           <div class="project-details">
             <div class="project-details-inner">
+              <div class="tagline">Overview</div>
               <p>
-                Engineered an assistive prototype that uses computer vision principles and hill-climbing search algorithms to detect and classify hand movements.
+                Engineered an assistive prototype that uses computer vision principles and hill-climbing optimization algorithms to detect and classify complex hand movements into executable commands.
+              </p>
+              <p>
+                This project provided hands-on experience in algorithmic problem-solving and reinforced how artificial intelligence can empower individuals with disabilities.
               </p>
               <p class="tech">
-                <strong>Tech:</strong> Python, Computer Vision, Hill-Climbing Algorithms.
+                <strong>Tech:</strong> Python, Computer Vision Concepts, Hill-Climbing Search Algorithms, Accessibility Engineering.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-header">
+            <div>
+              <div class="project-title">TEDx Santa Cruz Talk</div>
+              <div class="project-meta">Speaker · September 2024</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            A live talk sharing the motivation behind Video Time Capsule and how inclusive UX design preserves intergenerational stories.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                Delivered a presentation at TEDx Santa Cruz highlighting why intergenerational storytelling matters and how accessible UI design bridges generational tech gaps.
+              </p>
+              <p class="tech">
+                <strong>Skills:</strong> Public Speaking, Storytelling, Technical Communication, Community Engagement.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-header">
+            <div>
+              <div class="project-title">Winning Edge Podcast Guest Feature</div>
+              <div class="project-meta">Featured Guest · November 2023</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            An interview discussing how elite table tennis training translates into discipline, resilience, and academic performance in CS.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                Featured on the <em>Winning Edge Podcast</em> to share insights on maintaining high performance across competitive international sports, challenging CS coursework, and independent engineering projects.
+              </p>
+              <p class="tech">
+                <strong>Skills:</strong> Time Management, Athletic Resilience, Personal Leadership, Verbal Communication.
               </p>
             </div>
           </div>
