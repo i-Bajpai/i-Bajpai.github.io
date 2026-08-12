@@ -12,6 +12,7 @@
         --text-main: #111827;
         --text-muted: #6b7280;
         --accent: #2563eb;
+        --accent-hover: #1d4ed8;
       }
 
       * {
@@ -45,6 +46,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       .brand {
@@ -68,6 +71,7 @@
       nav a {
         padding-bottom: 0.1rem;
         border-bottom: 2px solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
       }
 
       nav a:hover {
@@ -82,24 +86,14 @@
       main {
         max-width: 960px;
         margin: 0 auto;
-        padding: 2rem 1.25rem 3rem;
-      }
-
-      h1 {
-        margin: 0 0 0.75rem;
-        font-size: 2rem;
-      }
-
-      .subtitle {
-        color: var(--text-muted);
-        margin-bottom: 1.5rem;
+        padding: 2.5rem 1.25rem 4rem;
       }
 
       /* Hero card + animation */
       .hero-card {
         background-color: var(--card-bg);
         border-radius: 0.75rem;
-        padding: 2rem 1.75rem;
+        padding: 2.25rem 2rem;
         border: 1px solid var(--border);
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 
@@ -113,39 +107,112 @@
         transform: translateY(0);
       }
 
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 2.25rem;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        max-width: 800px;
+      }
+
       .two-column {
         display: grid;
-        gap: 1.5rem;
+        gap: 1.75rem;
       }
 
       @media (min-width: 768px) {
         .two-column {
-          grid-template-columns: 2fr 1.2fr;
+          grid-template-columns: 1.8fr 1.2fr;
         }
       }
 
-      .section-title {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
+      .bio-text p {
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+        line-height: 1.65;
+        color: #374151;
+        font-size: 1rem;
       }
 
-      ul {
-        padding-left: 1.25rem;
+      .hero-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
       }
 
-      /* Quick-facts hover lift */
-      .two-column > div:last-child .card {
-        background-color: var(--card-bg);
-        border-radius: 0.75rem;
-        padding: 1.25rem 1.5rem;
+      .btn {
+        display: inline-block;
+        padding: 0.6rem 1.1rem;
+        border-radius: 0.375rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: background-color 0.2s ease, transform 0.15s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--accent);
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background-color: #f3f4f6;
+        color: #374151;
         border: 1px solid var(--border);
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      }
+
+      .btn-secondary:hover {
+        background-color: #e5e7eb;
+        transform: translateY(-1px);
+      }
+
+      /* Quick-facts Card */
+      .card {
+        background-color: #f8fafc;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
         transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
       }
 
-      .two-column > div:last-child .card:hover {
+      .card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.15);
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+      }
+
+      .section-title {
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+        color: var(--text-main);
+      }
+
+      .quick-facts-list {
+        padding-left: 1.1rem;
+        margin: 0;
+      }
+
+      .quick-facts-list li {
+        margin-bottom: 0.75rem;
+        font-size: 0.925rem;
+        line-height: 1.5;
+        color: #4b5563;
+      }
+
+      .quick-facts-list li:last-child {
+        margin-bottom: 0;
       }
 
       footer {
@@ -156,7 +223,6 @@
         color: var(--text-muted);
       }
 
-      /* Scroll-to-top button */
       #scrollTopBtn {
         position: fixed;
         right: 1.25rem;
@@ -165,7 +231,7 @@
         height: 2.5rem;
         border-radius: 999px;
         border: none;
-        background-color: #2563eb;
+        background-color: var(--accent);
         color: #ffffff;
         font-size: 1.3rem;
         box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
@@ -183,7 +249,7 @@
       }
 
       #scrollTopBtn:hover {
-        background-color: #1d4ed8;
+        background-color: var(--accent-hover);
       }
     </style>
   </head>
@@ -191,7 +257,7 @@
     <header>
       <div class="nav-container">
         <div class="brand">Isha Bajpai</div>
-        <nav>
+        <nav aria-label="Main Navigation">
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="experience.html">Experience</a></li>
@@ -206,28 +272,32 @@
       <section class="hero-card">
         <h1>Hi, I’m Isha.</h1>
         <p class="subtitle">
-          Computer Science student at Purdue University with a minor in Management, combining technical problem solving with creativity, leadership, and communication.
+          Computer Science student at Purdue University with a minor in Management, combining human-centered UX design, software development, and campus leadership.
         </p>
 
         <div class="two-column">
-          <div>
+          <div class="bio-text">
             <p>
-              I enjoy taking on challenging problems and breaking them into clear, manageable pieces—whether that’s in code, research, or real-world projects.
-              My background spans Java, Python, and R, and I like building things that connect people and make technology feel approachable.
+              I enjoy solving complex problems by breaking them down into intuitive, user-friendly solutions—whether through coding, design systems, or data analytics. My technical foundation spans Java, Python, C, and R, coupled with creative experience in digital graphics and UI prototyping.
             </p>
             <p>
-              At Purdue, I’m exploring C programming, discrete math, linear algebra, data-focused courses, and microeconomics, while staying active in campus communities and competitive table tennis.
-              I’m especially interested in opportunities that blend software, data, and human-centered design.
+              At Purdue, I serve as <strong>Design Lead for CSWN</strong> and <strong>Women’s Team Captain for NCTTA Table Tennis</strong>, while contributing to vehicle controls in <strong>Purdue Electric Racing</strong>. I’m eager to build impactful software that bridges computing, accessibility, and intuitive design.
             </p>
+            <div class="hero-actions">
+              <a href="experience.html" class="btn btn-primary">View Experience</a>
+              <a href="projects.html" class="btn btn-secondary">Explore Projects</a>
+              <a href="mailto:bajpai11@purdue.edu" class="btn btn-secondary">Get in Touch</a>
+            </div>
           </div>
           <div>
             <div class="card">
-              <p class="section-title">At a glance</p>
-              <ul>
-                <li>Purdue University – B.S. in Computer Science, Minor in Management (Sophomore)</li>
-                <li>Technical skills: Java, Python, R; experience with design tools like Illustrator and Photoshop</li>
-                <li>Interests: human-centered apps, AI for accessibility, data-driven decision making</li>
-                <li>Currently involved in: Purdue Electric Racing, CS Women’s Network, NCTTA table tennis</li>
+              <h2 class="section-title">At a Glance</h2>
+              <ul class="quick-facts-list">
+                <li><strong>Education:</strong> Purdue University – B.S. in Computer Science, Minor in Management (Rising Sophomore, GPA 3.57)</li>
+                <li><strong>Technical Skills:</strong> Java, Python, C, R, Linear Algebra, Discrete Math</li>
+                <li><strong>Design & UX:</strong> Adobe Illustrator, Photoshop, UI/UX Design, Fusion 360, Tinkercad</li>
+                <li><strong>Leadership:</strong> Design Lead (CSWN), Women's Captain (NCTTA Table Tennis), Controls Subteam (PER)</li>
+                <li><strong>Athletics:</strong> Former Team USA Athlete (#10 USATT U17, #210 World U15)</li>
               </ul>
             </div>
           </div>
@@ -239,7 +309,6 @@
       © <span id="year"></span> Isha Bajpai · Built with GitHub Pages
     </footer>
 
-    <!-- Scroll to top button -->
     <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
     <script>
@@ -247,7 +316,7 @@
 
       // Hero fade-in
       const hero = document.querySelector(".hero-card");
-      window.addEventListener("load", () => {
+      window.addEventListener("DOMContentLoaded", () => {
         if (hero) hero.classList.add("visible");
       });
 
