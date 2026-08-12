@@ -26,12 +26,12 @@
 
       a { text-decoration: none; color: inherit; }
 
-      header {
+      /* Fixed Top Nav Stacking & Visibility */
+      header.top-nav-header {
         position: sticky;
         top: 0;
-        z-index: 10;
-        background-color: rgba(250, 246, 240, 0.95);
-        backdrop-filter: blur(8px);
+        z-index: 100;
+        background-color: var(--bg);
         border-bottom: 2px solid var(--border-dark);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
@@ -82,12 +82,15 @@
         border: 2px solid var(--border-dark);
         box-shadow: 6px 6px 0px var(--border-dark);
         border-radius: 4px;
+        position: relative;
+        z-index: 1;
       }
 
       .blog-header {
         border-bottom: 2px solid var(--border-dark);
         padding-bottom: 1.25rem;
         margin-bottom: 1.75rem;
+        position: relative;
       }
 
       .blog-title {
@@ -176,7 +179,7 @@
     </style>
   </head>
   <body>
-    <header>
+    <header class="top-nav-header">
       <div class="nav-container">
         <div class="brand">Isha Bajpai</div>
         <nav aria-label="Main Navigation">
@@ -191,7 +194,7 @@
     </header>
 
     <main>
-      <header class="blog-header">
+      <div class="blog-header">
         <h1 class="blog-title">Notebook</h1>
         <p class="blog-subtitle">
           Short updates on what I’m building, researching, and learning as a CS student and athlete.
@@ -200,7 +203,7 @@
           <span>Currently writing about:</span>
           <span class="typing-text" id="typing-text"></span>
         </div>
-      </header>
+      </div>
 
       <ul class="post-list">
         <li class="post-item">
