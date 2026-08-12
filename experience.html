@@ -45,6 +45,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       .brand {
@@ -68,6 +70,7 @@
       nav a {
         padding-bottom: 0.1rem;
         border-bottom: 2px solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
       }
 
       nav a:hover {
@@ -80,26 +83,29 @@
       }
 
       main {
-        max-width: 960px;
+        max-width: 840px;
         margin: 0 auto;
-        padding: 2rem 1.25rem 3rem;
+        padding: 2.5rem 1.25rem 4rem;
       }
 
       h1 {
         margin-top: 0;
         margin-bottom: 0.5rem;
+        font-size: 2rem;
       }
 
       .subtitle {
         color: var(--text-muted);
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+        line-height: 1.5;
       }
 
       /* Timeline layout */
       .timeline {
         position: relative;
         margin-top: 2rem;
-        padding-left: 1.25rem;
+        padding-left: 1.5rem;
         border-left: 2px solid #e5e7eb;
       }
 
@@ -118,64 +124,94 @@
 
       .timeline-dot {
         position: absolute;
-        left: -0.55rem;
+        left: -1.85rem;
         top: 0.35rem;
-        width: 0.8rem;
-        height: 0.8rem;
+        width: 0.85rem;
+        height: 0.85rem;
         border-radius: 999px;
         background-color: #9ca3af;
-        border: 2px solid #f9fafb;
+        border: 2px solid #f4f5f7;
         box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.25);
       }
 
       .timeline-content {
         background-color: #ffffff;
         border-radius: 0.6rem;
-        padding: 1rem 1.25rem;
+        padding: 1.25rem 1.5rem;
         border: 1px solid #e5e7eb;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
-        cursor: default;
+        transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+      }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
       }
 
       .timeline-year {
         font-size: 0.85rem;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: #6b7280;
-        margin-bottom: 0.35rem;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
       }
 
+      .timeline-content h2 {
+        margin: 0.25rem 0 0.5rem 0;
+        font-size: 1.2rem;
+        color: var(--text-main);
+      }
+
+      .timeline-content p {
+        margin: 0;
+        color: #374151;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Category Styling */
       .timeline-item.tech .timeline-dot {
         background-color: #2563eb;
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
       }
-
       .timeline-item.tech .timeline-content {
-        border-color: #bfdbfe;
+        border-left: 4px solid #2563eb;
+      }
+
+      .timeline-item.leadership .timeline-dot {
+        background-color: #8b5cf6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+      }
+      .timeline-item.leadership .timeline-content {
+        border-left: 4px solid #8b5cf6;
       }
 
       .timeline-item.sports .timeline-dot {
         background-color: #f97316;
         box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
       }
-
       .timeline-item.sports .timeline-content {
-        border-color: #fed7aa;
+        border-left: 4px solid #f97316;
       }
 
       .timeline-content:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
-        transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
       }
 
       @media (max-width: 600px) {
         .timeline {
-          padding-left: 1rem;
+          padding-left: 1.1rem;
         }
-
+        .timeline-dot {
+          left: -1.45rem;
+        }
         .timeline-content {
-          padding: 0.85rem 1rem;
+          padding: 1rem;
         }
       }
 
@@ -187,7 +223,6 @@
         color: var(--text-muted);
       }
 
-      /* Scroll-to-top button */
       #scrollTopBtn {
         position: fixed;
         right: 1.25rem;
@@ -222,7 +257,7 @@
     <header>
       <div class="nav-container">
         <div class="brand">Isha Bajpai</div>
-        <nav>
+        <nav aria-label="Main Navigation">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="experience.html" class="active">Experience</a></li>
@@ -234,21 +269,36 @@
     </header>
 
     <main>
-      <h1>Experience</h1>
+      <h1>Experience & Leadership</h1>
       <p class="subtitle">
-        A journey that blends computer science, human-centered projects, and competitive table tennis.
+        A journey intersecting computer science, digital design leadership, and competitive international table tennis.
       </p>
 
       <div class="timeline">
-        <!-- newest to oldest -->
         <div class="timeline-item tech">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-year">2025 – Present</div>
+            <div class="timeline-header">
+              <span class="timeline-year">2025 – Present</span>
+            </div>
             <h2>Purdue University – Computer Science</h2>
             <p>
-              Studying computer science with a minor in management, focusing on C programming, discrete math,
-              linear algebra, and data-focused seminars while exploring how software, data, and people intersect.
+              Rising sophomore pursuing a B.S. in Computer Science with a minor in Management (GPA: 3.57).
+              Coursework includes C Programming, Data Structures, Discrete Math, Linear Algebra, Microeconomics, and DataMine Seminars.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item leadership">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-year">2025 – Present</span>
+            </div>
+            <h2>Design Lead – Computer Science Women’s Network (CSWN)</h2>
+            <p>
+              Create digital visual assets and branding elements for organizational events.
+              Collaborate directly with executive board members to pitch ideas, plan events, and drive student engagement across the CS community.
             </p>
           </div>
         </div>
@@ -256,73 +306,12 @@
         <div class="timeline-item tech">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-year">2025 – Present</div>
-            <h2>Purdue Electric Racing & CS Women’s Network</h2>
+            <div class="timeline-header">
+              <span class="timeline-year">2025 – Present</span>
+            </div>
+            <h2>Purdue Electric Racing (PER) – Controls Subteam</h2>
             <p>
-              Contributing to controls in Purdue Electric Racing and participating in the Computer Science Women’s Network,
-              gaining experience working on real systems while building community in tech.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2025</div>
-            <h2>CS Bridge & Early Programming</h2>
-            <p>
-              Completed an intensive CS Bridge program that accelerated Java fundamentals and built on dual-enrollment
-              experience in Python and Java, giving me a head start on Purdue coursework.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2024 – Present</div>
-            <h2>Communicating Tech: TEDx & Podcast</h2>
-            <p>
-              Shared the story behind Video Time Capsule at TEDx Santa Cruz and discussed balancing athletics,
-              academics, and projects on the Winning Edge Podcast, strengthening my ability to explain technical
-              ideas to broad audiences.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2023 – 2025</div>
-            <h2>Video Time Capsule (VTC) – Founder & Designer</h2>
-            <p>
-              Created a senior-friendly app experience to record and share elders’ stories, focusing on clear interfaces
-              and accessible design. This project sparked my interest in human-centered software that connects generations.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2022 – 2023</div>
-            <h2>Humans or Haptics – Research & Publication</h2>
-            <p>
-              Conducted independent research on whether athletes benefit more from human coaches or robotic training
-              systems, analyzing biomechanical and cognitive factors and publishing the work in the National High School
-              Journal of Science.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item tech">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2022 – 2023</div>
-            <h2>AI Hand Gesture Recognition</h2>
-            <p>
-              Built a Python-based prototype that recognizes hand gestures for people with speech disabilities,
-              exploring search-based algorithms and the potential of AI to support accessibility.
+              Work within the controls subsection to optimize AutoCross vehicle dynamics, focusing on turning precision and acceleration algorithms.
             </p>
           </div>
         </div>
@@ -330,11 +319,81 @@
         <div class="timeline-item sports">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-year">2015 – Present</div>
-            <h2>Competitive Table Tennis – Team USA & NCTTA</h2>
+            <div class="timeline-header">
+              <span class="timeline-year">2025 – Present</span>
+            </div>
+            <h2>Women's Team Captain – Purdue Table Tennis (NCTTA)</h2>
             <p>
-              Represented Team USA internationally and now compete for Purdue in NCTTA, serving as a leader and teammate.
-              Years of training have taught me focus, resilience, and how to perform under pressure—skills I carry into my CS work.
+              Captain of Women’s Team A and key player on Co-Ed Team A competing in regional and national tournaments.
+              Direct weekly high-performance training sessions at the France A. Córdova Recreational Sports Center and foster team development.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item leadership">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-year">2024 – 2025</span>
+            </div>
+            <h2>TEDx Speaker & Winning Edge Podcast Guest</h2>
+            <p>
+              Delivered a live talk at TEDx Santa Cruz showcasing Video Time Capsule and accessible UX design.
+              Featured on the <em>Winning Edge Podcast</em> discussing athletic discipline, academic resilience, and balance.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item tech">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-year">2023 – 2025</span>
+            </div>
+            <h2>Video Time Capsule (VTC) – Founder & Designer</h2>
+            <p>
+              Architected and designed a senior-friendly digital archive platform (<a href="http://vtcmemories.net" target="_blank" style="color:var(--accent); text-decoration: underline;">vtcmemories.net</a>) allowing elders to easily preserve and share family stories through an accessible user interface.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item tech">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-year">2022 – 2023</span>
+            </div>
+            <h2>Independent Research – Published in NHSJS</h2>
+            <p>
+              Authored <em>"Humans or Haptics: A Deep-dive into Robots for Sports Training"</em> published in the National High School Journal of Science.
+              Analyzed cognitive and biomechanical metrics comparing robotic feedback to human coaching.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item tech">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-year">2022 – 2023</span>
+            </div>
+            <h2>AI Hand Gesture Recognition Tool</h2>
+            <p>
+              Engineered a Python-based assistive AI application utilizing hill-climbing algorithms to interpret hand gestures for individuals with speech and motor impairments.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item sports">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-year">2015 – 2025</span>
+            </div>
+            <h2>Team USA Athlete – Table Tennis</h2>
+            <p>
+              Represented Team USA internationally across Canada, Sweden, and Australia.
+              Ranked #10 in USATT U17 and #210 World U15, securing multiple Silver and Bronze medals at US Open and US National Championships.
             </p>
           </div>
         </div>
