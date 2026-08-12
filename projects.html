@@ -12,6 +12,7 @@
         --text-main: #111827;
         --text-muted: #6b7280;
         --accent: #2563eb;
+        --accent-hover: #1d4ed8;
       }
 
       * {
@@ -45,6 +46,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       .brand {
@@ -68,6 +71,7 @@
       nav a {
         padding-bottom: 0.1rem;
         border-bottom: 2px solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
       }
 
       nav a:hover {
@@ -82,17 +86,20 @@
       main {
         max-width: 960px;
         margin: 0 auto;
-        padding: 2rem 1.25rem 3rem;
+        padding: 2.5rem 1.25rem 4rem;
       }
 
       h1 {
         margin-top: 0;
         margin-bottom: 0.5rem;
+        font-size: 2rem;
       }
 
       .subtitle {
         color: var(--text-muted);
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+        line-height: 1.5;
       }
 
       .card-list {
@@ -110,14 +117,19 @@
         cursor: pointer;
       }
 
+      .project-card:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
       .project-card:hover {
-        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
         transform: translateY(-2px);
         border-color: #bfdbfe;
       }
 
       .project-header {
-        padding: 1rem 1.25rem;
+        padding: 1.25rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -132,65 +144,73 @@
 
       .project-title {
         font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--text-main);
       }
 
       .project-meta {
-        font-size: 0.9rem;
+        font-size: 0.875rem;
         color: var(--text-muted);
       }
 
       .project-toggle {
-        font-size: 0.85rem;
+        font-size: 0.875rem;
+        font-weight: 500;
         color: var(--accent);
         white-space: nowrap;
       }
 
       .project-preview {
-        padding: 0 1.25rem 0.75rem;
+        padding: 0 1.25rem 1rem;
         font-size: 0.95rem;
         color: #374151;
+        line-height: 1.5;
       }
 
       .project-details {
         max-height: 0;
         overflow: hidden;
-        border-top: 1px solid var(--border);
+        border-top: 1px solid transparent;
         padding: 0 1.25rem;
         background-color: #f9fafb;
-        transition: max-height 0.35s ease-out, padding-top 0.2s ease-out, padding-bottom 0.2s ease-out, background-color 0.2s ease-out;
+        transition: max-height 0.35s ease-out, padding-top 0.2s ease-out, padding-bottom 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
       }
 
       .project-details-inner {
         padding: 0.75rem 0 1rem;
         font-size: 0.95rem;
         color: #374151;
+        line-height: 1.6;
       }
 
       .project-details-inner p {
-        margin: 0.4rem 0;
+        margin: 0.5rem 0;
       }
 
       .project-details-inner .tagline {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: var(--text-muted);
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.25rem;
       }
 
       .project-details-inner .tech {
-        font-size: 0.85rem;
+        font-size: 0.875rem;
         color: var(--text-muted);
+        margin-top: 0.75rem;
       }
 
       .project-card.open .project-details {
         padding-top: 0.5rem;
         padding-bottom: 0.75rem;
         background-color: #eff6ff;
+        border-top-color: #dbeafe;
       }
 
       .project-card.open .project-toggle {
-        color: #1d4ed8;
+        color: var(--accent-hover);
       }
 
       footer {
@@ -201,7 +221,6 @@
         color: var(--text-muted);
       }
 
-      /* Scroll-to-top button */
       #scrollTopBtn {
         position: fixed;
         right: 1.25rem;
@@ -210,7 +229,7 @@
         height: 2.5rem;
         border-radius: 999px;
         border: none;
-        background-color: #2563eb;
+        background-color: var(--accent);
         color: #ffffff;
         font-size: 1.3rem;
         box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
@@ -228,7 +247,7 @@
       }
 
       #scrollTopBtn:hover {
-        background-color: #1d4ed8;
+        background-color: var(--accent-hover);
       }
     </style>
   </head>
@@ -236,7 +255,7 @@
     <header>
       <div class="nav-container">
         <div class="brand">Isha Bajpai</div>
-        <nav>
+        <nav aria-label="Main Navigation">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="experience.html">Experience</a></li>
@@ -248,100 +267,121 @@
     </header>
 
     <main>
-      <h1>Projects</h1>
+      <h1>Projects & Creative Work</h1>
       <p class="subtitle">
-        Work that connects computer science, research, and human-centered design.
-        Click a project to see more details.
+        A showcase of technical development, UX design, research, and public communication. Click any card to expand details.
       </p>
 
       <div class="card-list">
-        <article class="project-card">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div class="project-title-group">
               <div class="project-title">Video Time Capsule (VTC)</div>
-              <div class="project-meta">Founder & Designer · 2023 – 2025</div>
+              <div class="project-meta">Founder & Lead Designer · 2023 – 2025</div>
             </div>
             <div class="project-toggle">View details ↓</div>
           </div>
           <div class="project-preview">
-            A senior-friendly app experience for recording and sharing elders’ stories with younger generations.
+            A senior-friendly digital archive platform allowing elders to preserve and share family stories with younger generations.
           </div>
           <div class="project-details">
             <div class="project-details-inner">
-              <div class="tagline">Overview</div>
+              <div class="tagline">Overview & Design Impact</div>
               <p>
-                Video Time Capsule focuses on making storytelling feel natural for elders.
-                The design uses clear visuals, large touch targets, and simple flows so users can spend time talking, not navigating menus.
+                Video Time Capsule (<a href="http://vtcmemories.net" target="_blank" style="color:var(--accent); text-decoration: underline;">vtcmemories.net</a>) focuses on making story recording natural and intuitive for senior citizens. The interface incorporates high-contrast visual cues, large touch targets, and streamlined UX flows to eliminate technical friction.
               </p>
               <p>
-                The project deepened my interest in human-centered design and showed how carefully chosen UI patterns can make technology more inclusive.
+                This project spearheaded my passion for human-centered UI/UX design and demonstrated how empathetic accessibility choices can bring emerging technology to underrepresented user demographics.
               </p>
               <p class="tech">
-                Tech & skills: product design, user experience, front-end prototyping, storytelling.
+                <strong>Tech & Skills:</strong> UI/UX Prototyping, Accessibility Design, Product Design, Web Development.
               </p>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-title">CSWN Visual Brand & Media Suite</div>
+              <div class="project-meta">Design Lead · Aug 2025 – Present</div>
+            </div>
+            <div class="project-toggle">View details ↓</div>
+          </div>
+          <div class="project-preview">
+            Digital branding assets, graphic designs, and promotional media for the Computer Science Women’s Network at Purdue.
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <div class="tagline">Overview</div>
+              <p>
+                As Design Lead, I conceptualize and design high-impact digital graphics and branding assets for CSWN campus events, workshops, and social channels.
+              </p>
+              <p>
+                I collaborate directly with executive board members to pitch visual ideas, streamline event promotion pipelines, and foster an inclusive, engaging environment for women in technology.
+              </p>
+              <p class="tech">
+                <strong>Tools & Skills:</strong> Adobe Illustrator, Adobe Photoshop, Brand Identity, Visual Design, Cross-team Collaboration.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div class="project-title-group">
               <div class="project-title">Humans or Haptics – Sports Training Research</div>
-              <div class="project-meta">National High School Journal of Science · 2022 – 2023</div>
+              <div class="project-meta">Published in NHSJS · 2022 – 2023</div>
             </div>
             <div class="project-toggle">View details ↓</div>
           </div>
           <div class="project-preview">
-            Independent research comparing how athletes learn from human coaches versus robotic training systems.
+            Peer-reviewed independent research investigating biomechanical and cognitive metrics in robotic vs. human sports coaching.
           </div>
           <div class="project-details">
             <div class="project-details-inner">
               <div class="tagline">Overview</div>
               <p>
-                This project analyzed biomechanical and cognitive aspects of training, asking how feedback, repetition,
-                and perception differ between human and robotic coaches.
+                Authored <em>"Humans or Haptics: A Deep-dive into Robots for Sports Training"</em>, analyzing how robotic haptic feedback compares against human coaching in skill acquisition and perceptual memory.
               </p>
               <p>
-                The work culminated in a peer-reviewed publication and strengthened my ability to design studies,
-                interpret data, and write clearly about technical topics.
+                The research was published in the <em>National High School Journal of Science</em>, strengthening my expertise in study design, quantitative data analysis, and technical scientific writing.
               </p>
               <p class="tech">
-                Skills: research design, data analysis, scientific writing, communicating technical ideas.
+                <strong>Skills:</strong> Experimental Research, Biomechanical Analysis, Statistical Data Analysis, Scientific Publishing.
               </p>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div class="project-title-group">
-              <div class="project-title">AI Hand Gesture Recognition</div>
-              <div class="project-meta">Python · Accessibility · 2022 – 2023</div>
+              <div class="project-title">AI Hand Gesture Recognition Tool</div>
+              <div class="project-meta">Python · Assistive AI · 2022 – 2023</div>
             </div>
             <div class="project-toggle">View details ↓</div>
           </div>
           <div class="project-preview">
-            A Python-based prototype that recognizes hand gestures to support people with speech disabilities.
+            A Python-based accessibility tool that maps hand gestures to digital commands to assist individuals with motor or speech impairments.
           </div>
           <div class="project-details">
             <div class="project-details-inner">
               <div class="tagline">Overview</div>
               <p>
-                This prototype explored search-based algorithms and computer vision techniques to map hand positions
-                to commands or phrases, aiming to provide an alternate communication channel.
+                Engineered an assistive prototype that uses computer vision principles and hill-climbing optimization algorithms to detect and classify complex hand movements into executable commands.
               </p>
               <p>
-                Building it gave me practical experience with algorithm design and showed how small technical choices
-                impact both accuracy and user experience.
+                This project provided hands-on experience in algorithmic problem-solving and reinforced how artificial intelligence can empower individuals with disabilities.
               </p>
               <p class="tech">
-                Tech: Python · algorithms · basic AI concepts · experimentation.
+                <strong>Tech:</strong> Python, Computer Vision Concepts, Hill-Climbing Search Algorithms, Accessibility Engineering.
               </p>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div class="project-title-group">
               <div class="project-title">TEDx Santa Cruz Talk</div>
@@ -350,42 +390,40 @@
             <div class="project-toggle">View details ↓</div>
           </div>
           <div class="project-preview">
-            A talk on the motivation behind Video Time Capsule and the importance of intergenerational storytelling.
+            A live talk sharing the motivation behind Video Time Capsule and how inclusive UX design preserves intergenerational stories.
           </div>
           <div class="project-details">
             <div class="project-details-inner">
               <div class="tagline">Overview</div>
               <p>
-                In this talk, I shared why capturing elders’ stories matters and how thoughtful design can make that process
-                easier and more meaningful. Audience participation helped keep the conversation grounded and interactive.
+                Delivered a presentation at TEDx Santa Cruz highlighting why intergenerational storytelling matters and how accessible UI design bridges generational tech gaps.
               </p>
               <p class="tech">
-                Skills: public speaking, narrative building, explaining technical ideas to broad audiences.
+                <strong>Skills:</strong> Public Speaking, Storytelling, Technical Communication, Community Engagement.
               </p>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" tabindex="0" role="button" aria-expanded="false">
           <div class="project-header">
             <div class="project-title-group">
-              <div class="project-title">Winning Edge Podcast Feature</div>
-              <div class="project-meta">Guest · November 2023</div>
+              <div class="project-title">Winning Edge Podcast Guest Feature</div>
+              <div class="project-meta">Featured Guest · November 2023</div>
             </div>
             <div class="project-toggle">View details ↓</div>
           </div>
           <div class="project-preview">
-            A conversation about balancing competitive table tennis, school, and projects through time management and resilience.
+            An interview discussing how elite table tennis training translates into discipline, resilience, and academic performance in CS.
           </div>
           <div class="project-details">
             <div class="project-details-inner">
               <div class="tagline">Overview</div>
               <p>
-                On the Winning Edge Podcast, I talked about what it looks like to move between training, coursework,
-                and side projects without losing sight of why each matters to me.
+                Featured on the <em>Winning Edge Podcast</em> to share insights on maintaining high performance across competitive international sports, challenging CS coursework, and independent engineering projects.
               </p>
               <p class="tech">
-                Skills: communication, reflection, sharing lessons learned from sports and academics.
+                <strong>Skills:</strong> Time Management, Athletic Resilience, Personal Leadership, Verbal Communication.
               </p>
             </div>
           </div>
@@ -408,25 +446,38 @@
         const details = card.querySelector(".project-details");
         const toggle = card.querySelector(".project-toggle");
 
-        card.addEventListener("click", () => {
+        function toggleCard() {
           const isOpen = card.classList.contains("open");
 
+          // Close all cards
           cards.forEach(c => {
             c.classList.remove("open");
+            c.setAttribute("aria-expanded", "false");
             const d = c.querySelector(".project-details");
             const t = c.querySelector(".project-toggle");
             d.style.maxHeight = null;
             if (t) t.textContent = "View details ↓";
           });
 
+          // Toggle clicked card
           if (!isOpen) {
             card.classList.add("open");
+            card.setAttribute("aria-expanded", "true");
             details.style.maxHeight = details.scrollHeight + "px";
             toggle.textContent = "Hide details ↑";
+          }
+        }
+
+        card.addEventListener("click", toggleCard);
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleCard();
           }
         });
       });
 
+      // Scroll to top button logic
       const scrollBtn = document.getElementById("scrollTopBtn");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 250) {
