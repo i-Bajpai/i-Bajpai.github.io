@@ -47,6 +47,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       .brand {
@@ -70,6 +72,7 @@
       nav a {
         padding-bottom: 0.1rem;
         border-bottom: 2px solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
       }
 
       nav a:hover {
@@ -89,6 +92,7 @@
         border-left: 1px solid var(--border);
         border-right: 1px solid var(--border);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        min-height: 80vh;
       }
 
       .blog-header {
@@ -106,10 +110,11 @@
         margin: 0;
         font-size: 0.95rem;
         color: var(--text-muted);
+        line-height: 1.5;
       }
 
       .typing-line {
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
         font-size: 0.95rem;
         color: #4b5563;
         display: flex;
@@ -136,6 +141,19 @@
       @keyframes blink {
         0%, 50% { opacity: 1; }
         50.01%, 100% { opacity: 0; }
+      }
+
+      /* Screen reader accessibility helper */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       .post-list {
@@ -185,6 +203,7 @@
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--text-muted);
+        margin: 0 0 0.2rem 0;
       }
 
       footer {
@@ -196,7 +215,6 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      /* Scroll-to-top button */
       #scrollTopBtn {
         position: fixed;
         right: 1.25rem;
@@ -231,7 +249,7 @@
     <header>
       <div class="nav-container">
         <div class="brand">Isha Bajpai</div>
-        <nav>
+        <nav aria-label="Main Navigation">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="experience.html">Experience</a></li>
@@ -248,98 +266,97 @@
         <p class="blog-subtitle">
           Short updates on what I’m building, researching, and learning as a CS student and athlete.
         </p>
-        <div class="typing-line">
+        <div class="typing-line" aria-hidden="true">
           <span>Currently writing about</span>
           <span class="typing-text" id="typing-text"></span><span class="cursor"></span>
         </div>
+        <span class="sr-only">Currently writing about projects, research, practice sessions, and new ideas.</span>
       </header>
 
       <ul class="post-list">
-        <!-- Most recent at top -->
-
         <li class="post-item">
-          <p class="post-tag">update</p>
-          <h2 class="post-title">
-            <a href="#">Launching this portfolio</a>
-          </h2>
-          <p class="post-meta">
-            2026 · San Jose / West Lafayette
-          </p>
-          <p class="post-excerpt">
-            Finally pulled together a space to connect everything I’m working on: research, projects like Video Time Capsule,
-            clubs at Purdue, and table tennis. The goal is to keep this updated with small, honest snapshots instead of only polished milestones.
-          </p>
+          <article>
+            <p class="post-tag">update</p>
+            <h2 class="post-title">
+              <a href="#">Launching this portfolio</a>
+            </h2>
+            <p class="post-meta">2026 · San Jose / West Lafayette</p>
+            <p class="post-excerpt">
+              Finally pulled together a space to connect everything I’m working on: research, projects like Video Time Capsule,
+              clubs at Purdue, and table tennis. The goal is to keep this updated with small, honest snapshots instead of only polished milestones.
+            </p>
+          </article>
         </li>
 
         <li class="post-item">
-          <p class="post-tag">transition</p>
-          <h2 class="post-title">
-            <a href="#">Closing one chapter, starting another</a>
-          </h2>
-          <p class="post-meta">
-            Summer 2025 · High school → Purdue
-          </p>
-          <p class="post-excerpt">
-            Finished high school in 2025 and immediately stepped into a new chapter at Purdue.
-            It feels like carrying forward everything I learned—from classes to projects to sports—into a bigger arena with new people, harder problems, and more room to grow.
-          </p>
+          <article>
+            <p class="post-tag">transition</p>
+            <h2 class="post-title">
+              <a href="#">Closing one chapter, starting another</a>
+            </h2>
+            <p class="post-meta">Summer 2025 · High school → Purdue</p>
+            <p class="post-excerpt">
+              Finished high school in 2025 and immediately stepped into a new chapter at Purdue.
+              It feels like carrying forward everything I learned—from classes to projects to sports—into a bigger arena with new people, harder problems, and more room to grow.
+            </p>
+          </article>
         </li>
 
         <li class="post-item">
-          <p class="post-tag">projects</p>
-          <h2 class="post-title">
-            <a href="#">Iterating on Video Time Capsule (VTC)</a>
-          </h2>
-          <p class="post-meta">
-            2023–2025 · Design & storytelling
-          </p>
-          <p class="post-excerpt">
-            Still thinking about how to make technology feel natural for elders.
-            VTC started as a way to preserve stories with a senior-friendly interface, and I’m continuing to explore features that make recording and sharing memories feel simple and safe for families.
-          </p>
+          <article>
+            <p class="post-tag">projects</p>
+            <h2 class="post-title">
+              <a href="#">Iterating on Video Time Capsule (VTC)</a>
+            </h2>
+            <p class="post-meta">2023–2025 · Design & storytelling</p>
+            <p class="post-excerpt">
+              Still thinking about how to make technology feel natural for elders.
+              VTC started as a way to preserve stories with a senior-friendly interface, and I’m continuing to explore features that make recording and sharing memories feel simple and safe for families.
+            </p>
+          </article>
         </li>
 
         <li class="post-item">
-          <p class="post-tag">research</p>
-          <h2 class="post-title">
-            <a href="#">Robots, coaches, and sports training</a>
-          </h2>
-          <p class="post-meta">
-            Reflecting on my NHSJS publication
-          </p>
-          <p class="post-excerpt">
-            My “Humans or Haptics” project looked at how robotic training systems compare to human coaches in sports.
-            Revisiting that work now, I’m still fascinated by how biomechanics, cognition, and feedback combine—and how these ideas might apply to future tools in athletics.
-          </p>
+          <article>
+            <p class="post-tag">research</p>
+            <h2 class="post-title">
+              <a href="#">Robots, coaches, and sports training</a>
+            </h2>
+            <p class="post-meta">Reflecting on my NHSJS publication</p>
+            <p class="post-excerpt">
+              My “Humans or Haptics” project looked at how robotic training systems compare to human coaches in sports.
+              Revisiting that work now, I’m still fascinated by how biomechanics, cognition, and feedback combine—and how these ideas might apply to future tools in athletics.
+            </p>
+          </article>
         </li>
 
         <li class="post-item">
-          <p class="post-tag">learning</p>
-          <h2 class="post-title">
-            <a href="#">Settling into CS at Purdue</a>
-          </h2>
-          <p class="post-meta">
-            Computer Science · Sophomore year
-          </p>
-          <p class="post-excerpt">
-            Classes like C programming, discrete math, linear algebra, and data-focused seminars are giving me a stronger foundation for the projects I care about.
-            I’m especially interested in how theory in these courses connects to AI, data analytics, and accessibility work.
-          </p>
+          <article>
+            <p class="post-tag">learning</p>
+            <h2 class="post-title">
+              <a href="#">Settling into CS at Purdue</a>
+            </h2>
+            <p class="post-meta">Computer Science · Sophomore year</p>
+            <p class="post-excerpt">
+              Classes like C programming, discrete math, linear algebra, and data-focused seminars are giving me a stronger foundation for the projects I care about.
+              I’m especially interested in how theory in these courses connects to AI, data analytics, and accessibility work.
+            </p>
+          </article>
         </li>
 
         <li class="post-item">
-          <p class="post-tag">teams</p>
-          <h2 class="post-title">
-            <a href="#">Finding community: PER, CSWN, and NCTTA</a>
-          </h2>
-          <p class="post-meta">
-            Clubs & athletics · 2025 – Present
-          </p>
-          <p class="post-excerpt">
-            Between Purdue Electric Racing, the Computer Science Women’s Network, and NCTTA table tennis,
-            I’m surrounded by people who care about both performance and support.
-            These groups keep me grounded while I’m pushing in classes and projects.
-          </p>
+          <article>
+            <p class="post-tag">teams</p>
+            <h2 class="post-title">
+              <a href="#">Finding community: PER, CSWN, and NCTTA</a>
+            </h2>
+            <p class="post-meta">Clubs & athletics · 2025 – Present</p>
+            <p class="post-excerpt">
+              Between Purdue Electric Racing, the Computer Science Women’s Network, and NCTTA table tennis,
+              I’m surrounded by people who care about both performance and support.
+              These groups keep me grounded while I’m pushing in classes and projects.
+            </p>
+          </article>
         </li>
       </ul>
     </main>
