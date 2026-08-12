@@ -249,9 +249,6 @@
         font-weight: 800;
         letter-spacing: -0.02em;
         margin-bottom: 1.25rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
       }
 
       .skills-grid {
@@ -327,7 +324,7 @@
     <main>
       <section class="hero-card">
         <span class="hero-header-badge">CS + Systems + Human Interaction</span>
-        <h1>Hi, I’m Isha.</h1>
+        <h1>Hi, I'm Isha!</h1>
         <p class="subtitle">
           Computer Science student at Purdue University actively carving out a niche where software systems, artificial intelligence, human biomechanics, and intuitive design converge.
         </p>
@@ -363,7 +360,7 @@
                 </div>
               </div>
 
-              <div class="slide-caption" id="slideCaption">01 // Research & Projects</div>
+              <div class="slide-caption" id="slideCaption">01 - Research & Projects</div>
 
               <div class="carousel-nav">
                 <button class="carousel-btn" id="prevBtn">← Prev</button>
@@ -375,10 +372,10 @@
       </section>
 
       <section>
-        <h2 class="skills-section-title">⚡ Key Skills & Focus Areas</h2>
+        <h2 class="skills-section-title">Key Skills & Focus Areas</h2>
         <div class="skills-grid">
           <div class="skill-card">
-            <div class="skill-card-header">01 // Languages & Systems</div>
+            <div class="skill-card-header">01 - Languages & Systems</div>
             <div class="skill-tags">
               <span class="skill-pill">Java</span>
               <span class="skill-pill">Python</span>
@@ -390,7 +387,7 @@
           </div>
 
           <div class="skill-card">
-            <div class="skill-card-header">02 // UX & Creative Tech</div>
+            <div class="skill-card-header">02 - UX & Creative Tech</div>
             <div class="skill-tags">
               <span class="skill-pill">Adobe Illustrator</span>
               <span class="skill-pill">Adobe Photoshop</span>
@@ -401,7 +398,7 @@
           </div>
 
           <div class="skill-card">
-            <div class="skill-card-header">03 // Leadership & Strategy</div>
+            <div class="skill-card-header">03 - Leadership & Strategy</div>
             <div class="skill-tags">
               <span class="skill-pill">Team Captaincy (NCTTA)</span>
               <span class="skill-pill">Design Leadership (CSWN)</span>
@@ -428,16 +425,16 @@
       const caption = document.getElementById("slideCaption");
 
       const captions = [
-        "01 // CS & System Research",
-        "02 // Table Tennis & Training",
-        "03 // Purdue CSWN & Campus"
+        "01 - CS & System Research",
+        "02 - Table Tennis & Training",
+        "03 - Purdue CSWN & Campus"
       ];
 
       let currentIndex = 0;
 
       function updateCarousel(index) {
         track.style.transform = `translateX(-${index * 100}%)`;
-        caption.textContent = captions[index] || `0${index + 1} // Snapshots`;
+        caption.textContent = captions[index] || `0${index + 1} - Snapshots`;
       }
 
       nextBtn.addEventListener("click", () => {
